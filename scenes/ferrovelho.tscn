@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ruey1wmimk1p"]
+
+[node name="ferrovelho" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
