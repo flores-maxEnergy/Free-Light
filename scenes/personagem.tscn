@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hbsmy5au8vt1"]
+
+[ext_resource type="PackedScene" uid="uid://bydrhhe1rme45" path="res://assets/modelagens/F7.tscn" id="1_t2tgb"]
+
+[node name="personagem" type="Node3D"]
+
+[node name="F-7E3" parent="." instance=ExtResource("1_t2tgb")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.9631114e-08, 0.42187467, -0.9066542, 1.8440728e-08, 0.9066542, 0.42187467, 1, 0, -4.371139e-08, -1.3790753, 1.121912, 0)
