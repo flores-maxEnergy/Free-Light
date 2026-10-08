@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://hbsmy5au8vt1"]
+[gd_scene load_steps=4 format=3 uid="uid://hbsmy5au8vt1"]
 
 [ext_resource type="PackedScene" uid="uid://bydrhhe1rme45" path="res://assets/modelagens/F7.tscn" id="1_t2tgb"]
+[ext_resource type="Script" uid="uid://qm848wcdvtdu" path="res://scripts/personagem.gd" id="1_wtnic"]
 
-[node name="personagem" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtnic"]
+size = Vector3(1.303833, 1.5192871, 1.7406616)
 
-[node name="F-7E3" parent="." instance=ExtResource("1_t2tgb")]
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_wtnic")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.9631114e-08, 0.42187467, -0.9066542, 1.8440728e-08, 0.9066542, 0.42187467, 1, 0, -4.371139e-08, -1.3790753, 1.121912, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1519165, 0.22521973, 0.014312744)
+shape = SubResource("BoxShape3D_wtnic")
+
+[node name="personagem" type="Node3D" parent="."]
+
+[node name="F-7E3" parent="personagem" instance=ExtResource("1_t2tgb")]
+
+[node name="cabeca" type="Node3D" parent="personagem"]
+
+[node name="Camera3D" type="Camera3D" parent="personagem/cabeca"]
+transform = Transform3D(-3.9631114e-08, 0.42187467, -0.9066542, 1.8440728e-08, 0.9066542, 0.42187467, 1, 0, -4.3711392e-08, -1.3790753, 1.121912, 0)
