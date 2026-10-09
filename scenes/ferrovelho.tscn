@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=6 format=3 uid="uid://ruey1wmimk1p"]
 
-[ext_resource type="PackedScene" uid="uid://cupbk1ac2k30y" path="res://scenes/mundo.tscn" id="1_4g3go"]
-[ext_resource type="PackedScene" uid="uid://bydrhhe1rme45" path="res://assets/modelagens/F7.tscn" id="2_a5gss"]
+[ext_resource type="PackedScene" uid="uid://cvbnv0rog1xxw" path="res://scenes/labirinto_prototipomundo.tscn" id="2_4g3go"]
 [ext_resource type="PackedScene" uid="uid://hbsmy5au8vt1" path="res://scenes/personagem.tscn" id="3_a5gss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
@@ -27,10 +26,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pmwl0")
 
-[node name="mundo" parent="." instance=ExtResource("1_4g3go")]
-
-[node name="F-7E3" parent="mundo" instance=ExtResource("2_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.767034, 0)
-
 [node name="personagem" parent="." instance=ExtResource("3_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7084808, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.516201, -71.78893)
+
+[node name="labirintoPrototipomundo" parent="." instance=ExtResource("2_4g3go")]

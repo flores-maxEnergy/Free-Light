@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvbnv0rog1xxw"]
+
+[ext_resource type="PackedScene" uid="uid://c7gf7qhuiwnom" path="res://assets/modelagens/labirintoPrototipo.tscn" id="1_7iqq7"]
+
+[node name="labirintoPrototipomundo" type="Node3D"]
+
+[node name="labirinto" parent="." instance=ExtResource("1_7iqq7")]
