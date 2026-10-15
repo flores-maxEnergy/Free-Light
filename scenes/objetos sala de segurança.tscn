@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctbyckjuubc1f"]
+
+[ext_resource type="PackedScene" uid="uid://bo4tl8o4nrb46" path="res://assets/kamar.blend" id="1_peteb"]
+
+[node name="kamar" instance=ExtResource("1_peteb")]
+
+[node name="ruang" parent="." index="12"]
+transform = Transform3D(2.6399796, 0, 0, 0, 2.6399796, 0, 0, 0, 2.6399796, 1.3865962, 4.4179726, 5.2736154)
+visible = false

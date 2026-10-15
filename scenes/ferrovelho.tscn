@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=8 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="PackedScene" uid="uid://cvbnv0rog1xxw" path="res://scenes/labirinto_prototipomundo.tscn" id="2_4g3go"]
+[ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
 [ext_resource type="PackedScene" uid="uid://hbsmy5au8vt1" path="res://scenes/personagem.tscn" id="3_a5gss"]
+[ext_resource type="PackedScene" uid="uid://5160mqrih35d" path="res://scenes/segurança.tscn" id="4_7fe06"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,4 +31,16 @@ environment = SubResource("Environment_pmwl0")
 [node name="personagem" parent="." instance=ExtResource("3_a5gss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.516201, -71.78893)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="personagem"]
+transform = Transform3D(0.0321958, 0, -0.99948156, 0, 1, 0, 0.99948156, 0, 0.0321958, 0.56078714, 0, 0)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 50.0
+
 [node name="labirintoPrototipomundo" parent="." instance=ExtResource("2_4g3go")]
+
+[node name="BarraLuz" parent="." instance=ExtResource("3_7fe06")]
+
+[node name="segurança" parent="." instance=ExtResource("4_7fe06")]
+transform = Transform3D(-0.9990421, 0, -0.043758906, 0, 1, 0, 0.043758906, 0, -0.9990421, -26.38096, -2.1951654, -31.164154)
