@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://7j3jhsfmuptw"]
+
+[ext_resource type="Script" uid="uid://b1pvp1fe575k" path="res://scripts/item_1.gd" id="1_pag02"]
+[ext_resource type="Material" uid="uid://d18r63i4bkvn2" path="res://assets/texturas/item_1_texture.tres" id="1_umx0m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umx0m"]
+size = Vector3(0.14355469, 0.2997055, 0.7005539)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pag02"]
+size = Vector3(0.3930664, 0.51116943, 0.7038574)
+
+[node name="item_1" type="RigidBody3D"]
+script = ExtResource("1_pag02")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+size = Vector3(0.1, 0.1, 0.1)
+material = ExtResource("1_umx0m")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07885742)
+size = Vector3(0.051757813, 0.055664063, 0.20751953)
+material = ExtResource("1_umx0m")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032714844, 0.00024414063, -0.15483642)
+size = Vector3(0.087890625, 0.020019531, 0.03137207)
+material = ExtResource("1_umx0m")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025878906, 0.00024414063, -0.10010378)
+size = Vector3(0.07421875, 0.020019531, 0.03137207)
+material = ExtResource("1_umx0m")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(0.036132813, 0.1, 0.033447266)
+material = ExtResource("1_umx0m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003289029, -0.20692825)
+shape = SubResource("BoxShape3D_umx0m")
+
+[node name="area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036376953, 0.108551025, -0.196455)
+shape = SubResource("BoxShape3D_pag02")
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
