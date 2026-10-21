@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=9 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="PackedScene" uid="uid://cvbnv0rog1xxw" path="res://scenes/labirinto_prototipomundo.tscn" id="2_4g3go"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
 [ext_resource type="PackedScene" uid="uid://hbsmy5au8vt1" path="res://scenes/personagem.tscn" id="3_a5gss"]
 [ext_resource type="PackedScene" uid="uid://5160mqrih35d" path="res://scenes/segurança.tscn" id="4_7fe06"]
+[ext_resource type="PackedScene" uid="uid://7j3jhsfmuptw" path="res://scenes/item_1.tscn" id="5_xsbc4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.3411771, 0.42995906, 0.6846487, 1)
+sky_horizon_color = Color(0.25385714, 0.15591824, 0.24963123, 1)
+sky_curve = 0.55981946
+sky_energy_multiplier = 0.0
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_xsbc4"]
@@ -15,21 +19,26 @@ sky_material = SubResource("ProceduralSkyMaterial_7fe06")
 [sub_resource type="Environment" id="Environment_pmwl0"]
 background_mode = 2
 sky = SubResource("Sky_xsbc4")
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.0
+reflected_light_source = 1
 ssao_enabled = true
 glow_enabled = true
+glow_intensity = 0.68
+glow_bloom = 0.25
 
 [node name="ferrovelho" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.91425395, -0.021909578, 0.40454876, 0, 0.99853665, 0.054078814, -0.40514162, 0.04944177, -0.91291606, 0, 0, 0)
-light_energy = 1.25
+transform = Transform3D(-0.91425395, -0.021909578, 0.40454873, -0.12045191, 0.96808374, -0.21978396, -0.38682175, -0.24966706, -0.88771343, -19.76885, 0, -65.21054)
+light_energy = 0.361
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pmwl0")
 
 [node name="personagem" parent="." instance=ExtResource("3_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.516201, -71.78893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.11616, -67.2768)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="personagem"]
 transform = Transform3D(0.0321958, 0, -0.99948156, 0, 1, 0, 0.99948156, 0, 0.0321958, 0.56078714, 0, 0)
@@ -44,3 +53,13 @@ spot_angle = 50.0
 
 [node name="segurança" parent="." instance=ExtResource("4_7fe06")]
 transform = Transform3D(-0.9990421, 0, -0.043758906, 0, 1, 0, 0.043758906, 0, -0.9990421, -26.38096, -2.1951654, -31.164154)
+
+[node name="agachar" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8265264, 4.3198647, -60.06311)
+use_collision = true
+size = Vector3(6.928467, 1, 10.841797)
+
+[node name="item_1" parent="." instance=ExtResource("5_xsbc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.081619, 3.3236947, -50.381092)
+
+[editable path="item_1"]
