@@ -9,11 +9,16 @@ extends CharacterBody3D
 
 var energia_atual := 100.0
 
-@onready var camera: Camera3D = $personagem/cabeca/Camera3D
+@onready var camera: Camera3D = $cabeca/Camera3D
 
 @onready var barra_energia: ProgressBar = get_node("../BarraLuz/BarraEnergia")
 @onready var luz_peito: SpotLight3D = $SpotLight3D
 
+@onready var animation: AnimationPlayer = $animation
+var esta_agachado : bool = false
+
+#itens
+var item_1 : bool = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -48,7 +53,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			luz_peito.visible = false
 		elif energia_atual > 0.0:
 			luz_peito.visible = true
-
+	
+	if event.is_action_pressed("agachar"):
+		if not esta_agachado:
+			animation.play("agachar")
+			esta_agachado = true
+		else:
+			animation.play("levantar")
+			esta_agachado = false
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
@@ -97,3 +109,7 @@ func _physics_process(delta: float) -> void:
 
 	# Atualizar a barra
 	barra_energia.value = energia_atual
+
+func pegar_item_1():
+	item_1 = true
+	print("pergou a chave: " + str(item_1))
