@@ -1,0 +1,5 @@
+	1 - diminuir velocidade ao agachar.
+	2 - led inimigo
+	3 - texturas
+	4 - ambiente
+	5 - chuva

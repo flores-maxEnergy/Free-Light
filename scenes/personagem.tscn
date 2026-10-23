@@ -47,6 +47,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0.08347747, 0.67860657, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cabeca/Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.6661996, 1.2540464, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cabeca/Camera3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.4590216, -1.5707964, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_bss74"]
 resource_name = "agachar"
@@ -86,6 +110,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.08347747, 0.67860657, 0), Vector3(0.083, 0.22009587, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cabeca/Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.6661996, 1.2540464, 0), Vector3(-1.6661996, 0.6628119, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cabeca/Camera3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.45926595, -1.5707964, 2.142477e-08), Vector3(-0.16345008, -1.5707964, 7.2089397e-09)]
 }
 
 [sub_resource type="Animation" id="Animation_en60c"]
@@ -127,6 +175,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, -1.5, 0), Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cabeca/Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.6661996, 0.6628119, 0), Vector3(-1.666, 1.254, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cabeca/Camera3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.16345008, -1.5707964, 7.2089397e-09), Vector3(-0.4590216, -1.5707964, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_en60c"]
 _data = {
@@ -139,6 +211,8 @@ _data = {
 size = Vector3(1.3190308, 0.9713135, 1.7022705)
 
 [node name="perso" type="CharacterBody3D" groups=["jogador"]]
+collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_wtnic")
 
 [node name="F-7E3" parent="." instance=ExtResource("1_t2tgb")]
@@ -149,7 +223,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 [node name="cabeca" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-transform = Transform3D(-3.9631114e-08, 0.42187467, -0.9066542, 1.8440728e-08, 0.9066542, 0.42187467, 1, 0, -4.3711392e-08, -1.6661996, 1.2540464, 0)
+transform = Transform3D(-4.371139e-08, 0.4430712, -0.8964864, 0, 0.8964864, 0.4430712, 1, 1.9367256e-08, -3.9186666e-08, -1.6661996, 1.2540464, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.31586483, 0, 0, 0, 0.31586483, 0, 0, 0, 0.31586483, 0, 0.82750684, 0)

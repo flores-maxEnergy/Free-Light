@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://dym8fouev5el3"]
+
+[ext_resource type="Script" uid="uid://d4nosg0kkebfj" path="res://scripts/inimigo.gd" id="1_pt50e"]
+[ext_resource type="PackedScene" uid="uid://bga7ki37b6yw8" path="res://assets/modelagens/deploy_inimigo.glb" id="2_61lki"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_21tsg"]
+height = 1.034668
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4er16"]
+height = 1.9754639
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61lki"]
+albedo_color = Color(0.7915648, 0, 0.29573157, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.85298395, 0, 0.33797562, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_21tsg"]
+material = SubResource("StandardMaterial3D_61lki")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
+
+[node name="inimigo" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_pt50e")
+
+[node name="deploy_inimigo" parent="." instance=ExtResource("2_61lki")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.3711385e-08, -0.8035661, 0.59521556, 0, 0.59521556, 0.8035661, -0.99999994, 3.512499e-08, -2.6017698e-08, 0.80609554, 1.0230627, 0.02716075)
+shape = SubResource("CylinderShape3D_21tsg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0.84240544, 0.5388441, -1.7763566e-15, 0.53884417, -0.8424054, -0.9999999, -3.6822716e-08, -2.3553625e-08, -0.8262544, 1.0230627, -0.06873234)
+shape = SubResource("CylinderShape3D_21tsg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.02015892, 1.0081177, -0.019009432)
+shape = SubResource("CylinderShape3D_4er16")
+
+[node name="corpo" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="corpo"]
+transform = Transform3D(-4.371139e-08, -0.8035661, 0.59521556, 0, 0.59521556, 0.8035661, -1, 3.512499e-08, -2.6017698e-08, 0.91058034, 1.0230627, -0.1397962)
+shape = SubResource("CylinderShape3D_21tsg")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="corpo"]
+transform = Transform3D(-4.371139e-08, 0.8424054, 0.5388443, 0, 0.5388443, -0.8424054, -1, -3.682271e-08, -2.3553632e-08, 0, 1.0230627, -0.8478726)
+shape = SubResource("CylinderShape3D_21tsg")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="corpo"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.0081177, 0)
+shape = SubResource("CylinderShape3D_4er16")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 7
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="MeshInstance3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6956049, -0.021833748)
+mesh = SubResource("CylinderMesh_21tsg")
+
+[connection signal="area_entered" from="corpo" to="." method="_on_corpo_area_entered"]
+[connection signal="body_entered" from="corpo" to="." method="_on_corpo_body_entered"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

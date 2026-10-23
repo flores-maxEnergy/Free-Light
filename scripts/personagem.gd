@@ -16,6 +16,7 @@ var energia_atual := 100.0
 
 @onready var animation: AnimationPlayer = $animation
 var esta_agachado : bool = false
+var life = 1
 
 #itens
 var item_1 : bool = false
@@ -58,7 +59,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not esta_agachado:
 			animation.play("agachar")
 			esta_agachado = true
+			velocidade = 3.0
 		else:
+			velocidade = 5.0
 			animation.play("levantar")
 			esta_agachado = false
 
@@ -113,3 +116,7 @@ func _physics_process(delta: float) -> void:
 func pegar_item_1():
 	item_1 = true
 	print("pergou a chave: " + str(item_1))
+
+func tomar_dano():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://scenes/tela_derrota.tscn")

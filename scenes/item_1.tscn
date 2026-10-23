@@ -10,6 +10,7 @@ size = Vector3(0.14355469, 0.2997055, 0.7005539)
 size = Vector3(0.3930664, 0.51116943, 0.7038574)
 
 [node name="item_1" type="RigidBody3D"]
+collision_layer = 0
 script = ExtResource("1_pag02")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -42,6 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003289029, -0.20692825)
 shape = SubResource("BoxShape3D_umx0m")
 
 [node name="area" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036376953, 0.108551025, -0.196455)
