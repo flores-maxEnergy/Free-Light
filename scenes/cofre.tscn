@@ -1,0 +1,330 @@
+[gd_scene load_steps=22 format=3 uid="uid://cuk5mcfjgqe82"]
+
+[ext_resource type="Script" uid="uid://c5ty6227e6c5y" path="res://scripts/cofre.gd" id="1_aie4e"]
+[ext_resource type="PackedScene" uid="uid://dicqj4erolvmm" path="res://assets/modelagens/botoes_cofre3D.glb" id="2_71iw2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aie4e"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71iw2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dcxj"]
+albedo_color = Color(0.43627417, 0.4358726, 0.54866695, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fx2o"]
+
+[sub_resource type="Animation" id="Animation_ypnwh"]
+resource_name = "abrir_cofre"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5314915, 0, 0), Vector3(0.8200562, 0, -0.33267128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D/porta:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nrnjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5314915, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D/porta:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhfrm"]
+_data = {
+&"RESET": SubResource("Animation_nrnjt"),
+&"abrir_cofre": SubResource("Animation_ypnwh")
+}
+
+[sub_resource type="Animation" id="Animation_aie4e"]
+resource_name = "0 to 1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0471976)]
+}
+
+[sub_resource type="Animation" id="Animation_71iw2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6dcxj"]
+resource_name = "1 to 2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.0471976), Vector3(0, 0, -2.0943952)]
+}
+
+[sub_resource type="Animation" id="Animation_0fx2o"]
+resource_name = "2 to 3"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.0943952), Vector3(0, 0, -3.1415927)]
+}
+
+[sub_resource type="Animation" id="Animation_dhfrm"]
+resource_name = "3 to 4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.1415927), Vector3(0, 0, -4.1887903)]
+}
+
+[sub_resource type="Animation" id="Animation_2xmtr"]
+resource_name = "4 to 5"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -4.1887903), Vector3(0, 0, -5.2359877)]
+}
+
+[sub_resource type="Animation" id="Animation_5nb3q"]
+resource_name = "5 to 0"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -5.2359877), Vector3(0, 0, -6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xltc0"]
+_data = {
+&"0 to 1": SubResource("Animation_aie4e"),
+&"1 to 2": SubResource("Animation_6dcxj"),
+&"2 to 3": SubResource("Animation_0fx2o"),
+&"3 to 4": SubResource("Animation_dhfrm"),
+&"4 to 5": SubResource("Animation_2xmtr"),
+&"5 to 0": SubResource("Animation_5nb3q"),
+&"RESET": SubResource("Animation_71iw2")
+}
+
+[sub_resource type="Animation" id="Animation_xltc0"]
+resource_name = "0 to 1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0471976)]
+}
+
+[sub_resource type="Animation" id="Animation_mdedv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qqi6x"]
+resource_name = "new_animation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.0471976), Vector3(0, 0, -2.0943952)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6xsc"]
+_data = {
+&"0 to 1": SubResource("Animation_xltc0"),
+&"1 to 2": SubResource("Animation_qqi6x"),
+&"RESET": SubResource("Animation_mdedv")
+}
+
+[node name="cofre" type="Node3D"]
+script = ExtResource("1_aie4e")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_aie4e")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11328125, 0, 0)
+operation = 2
+size = Vector3(0.7734375, 0.69433594, 0.72753906)
+material = SubResource("StandardMaterial3D_71iw2")
+
+[node name="porta" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5314915, 0, 0)
+size = Vector3(0.0703125, 0.69433594, 0.72753906)
+material = SubResource("StandardMaterial3D_6dcxj")
+
+[node name="btn_1" parent="CSGBox3D/porta" instance=ExtResource("2_71iw2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.013879597, 0, 0.10821003)
+
+[node name="btn_2" parent="CSGBox3D/porta" instance=ExtResource("2_71iw2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.013879597, 0, 0)
+
+[node name="btn_3" parent="CSGBox3D/porta" instance=ExtResource("2_71iw2")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.013879597, 0, -0.106527805)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, 0.10473527)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, -0.00060480833)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, -0.11224574)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, -0.10752967)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, 0.0018833578)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGBox3D/porta"]
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, 0.10752351)
+polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
+depth = 0.05
+material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="porta_cofre" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dhfrm")
+}
+
+[node name="botao_1" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xltc0")
+}
+
+[node name="botao_2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q6xsc")
+}
+
+[node name="botao_3" type="AnimationPlayer" parent="."]
