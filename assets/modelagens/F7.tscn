@@ -14,7 +14,7 @@ grow = true
 [node name="cabeca" parent="Armature/Skeleton3D" index="0"]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.9109455, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Armature/Skeleton3D/cabeca" index="0"]
+[node name="luz_cabeca" type="OmniLight3D" parent="Armature/Skeleton3D/cabeca" index="0"]
 transform = Transform3D(3.1659112, 0, 0, 0, 3.1659112, 0, 0, 0, 3.1659112, -0.12142709, 3.9178488, 0)
 light_color = Color(0.9392892, 0, 0.23148578, 1)
 omni_range = 3.5

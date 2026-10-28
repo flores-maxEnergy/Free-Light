@@ -223,7 +223,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 [node name="cabeca" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-transform = Transform3D(-4.371139e-08, 0.4430712, -0.8964864, 0, 0.8964864, 0.4430712, 1, 1.9367256e-08, -3.9186666e-08, -1.6661996, 1.2540464, 0)
+transform = Transform3D(-4.371139e-08, 0.4430711, -0.8964862, 0, 0.8964862, 0.4430711, 1, 1.9367253e-08, -3.918666e-08, -1.6661996, 1.2540464, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.31586483, 0, 0, 0, 0.31586483, 0, 0, 0, 0.31586483, 0, 0.82750684, 0)
