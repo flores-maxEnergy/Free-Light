@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=16 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="PackedScene" uid="uid://cvbnv0rog1xxw" path="res://scenes/labirinto_prototipomundo.tscn" id="2_4g3go"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://7j3jhsfmuptw" path="res://scenes/item_1.tscn" id="5_xsbc4"]
 [ext_resource type="PackedScene" uid="uid://dym8fouev5el3" path="res://scenes/inimigo.tscn" id="6_pmwl0"]
 [ext_resource type="PackedScene" uid="uid://cuk5mcfjgqe82" path="res://scenes/cofre.tscn" id="6_wafhy"]
+[ext_resource type="PackedScene" uid="uid://d2y063fxejvcw" path="res://assets/modelagens/quadro.dae" id="8_6h02v"]
+[ext_resource type="PackedScene" uid="uid://bfebh4f0t5xtp" path="res://assets/modelagens/lixeira.blend" id="9_m8h5b"]
+[ext_resource type="PackedScene" uid="uid://dh3gke5m153hy" path="res://assets/modelagens/83-nescafe_mug/nescafe_mug.fbx" id="10_osnry"]
+[ext_resource type="PackedScene" uid="uid://b3juwe13kp7sl" path="res://assets/modelagens/Coca_Cola.blend" id="11_x587a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
 sky_top_color = Color(0.3411771, 0.42995906, 0.6846487, 1)
@@ -87,5 +91,17 @@ offset_right = 714.0
 offset_bottom = 275.0
 theme_override_font_sizes/font_size = 23
 text = "Pressione X para acender"
+
+[node name="quadro" parent="." instance=ExtResource("8_6h02v")]
+transform = Transform3D(-0.059961796, 0, -1.0327262, 0, 2.52, 0, 2.3986497, 0, -0.025816461, -23.64624, 0.13652468, -26.858398)
+
+[node name="lixeira" parent="." instance=ExtResource("9_m8h5b")]
+transform = Transform3D(0.53551596, 0, 0, 0, 0.5237678, 0, 0, 0, 0.47690678, -25.758266, -1.0983479, -21.620277)
+
+[node name="nescafe_mug2" parent="." instance=ExtResource("10_osnry")]
+transform = Transform3D(2.030504, 0, 0, 0, 2.2350385, 0, 0, 0, 1.8579985, -25.785892, 0.25418782, -28.855133)
+
+[node name="Coca_Cola" parent="." instance=ExtResource("11_x587a")]
+transform = Transform3D(0.12599999, 0, 0, 0, 0.095199965, 0, 0, 0, 0.13229999, -26, -1.0951064, -28)
 
 [editable path="item_1"]
