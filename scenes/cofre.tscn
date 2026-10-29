@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cuk5mcfjgqe82"]
+[gd_scene load_steps=36 format=3 uid="uid://cuk5mcfjgqe82"]
 
 [ext_resource type="Script" uid="uid://c5ty6227e6c5y" path="res://scripts/cofre.gd" id="1_aie4e"]
 [ext_resource type="PackedScene" uid="uid://dicqj4erolvmm" path="res://assets/modelagens/botoes_cofre3D.glb" id="2_71iw2"]
@@ -14,32 +14,8 @@ albedo_color = Color(0.43627417, 0.4358726, 0.54866695, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fx2o"]
 
-[sub_resource type="Animation" id="Animation_ypnwh"]
-resource_name = "abrir_cofre"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D/porta:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.5314915, 0, 0), Vector3(0.8200562, 0, -0.33267128)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D/porta:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
-}
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypnwh"]
+albedo_color = Color(0.28729492, 0.28729492, 0.2872949, 1)
 
 [sub_resource type="Animation" id="Animation_nrnjt"]
 length = 0.001
@@ -68,6 +44,33 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ypnwh"]
+resource_name = "abrir_cofre"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5314915, 0, 0), Vector3(0.8200562, 0, -0.33267128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D/porta:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhfrm"]
 _data = {
 &"RESET": SubResource("Animation_nrnjt"),
@@ -88,21 +91,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0471976)]
-}
-
-[sub_resource type="Animation" id="Animation_71iw2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6dcxj"]
@@ -185,6 +173,21 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -5.2359877), Vector3(0, 0, -6.2831855)]
 }
 
+[sub_resource type="Animation" id="Animation_71iw2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xltc0"]
 _data = {
 &"0 to 1": SubResource("Animation_aie4e"),
@@ -212,21 +215,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0471976)]
 }
 
-[sub_resource type="Animation" id="Animation_mdedv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_qqi6x"]
 resource_name = "new_animation"
 length = 0.3
@@ -243,12 +231,220 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -1.0471976), Vector3(0, 0, -2.0943952)]
 }
 
+[sub_resource type="Animation" id="Animation_mdedv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q6xsc"]
+resource_name = "2 to 3"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.0943952), Vector3(0, 0, -3.1415927)]
+}
+
+[sub_resource type="Animation" id="Animation_n08md"]
+resource_name = "3 to 4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.1415927), Vector3(0, 0, -4.1887903)]
+}
+
+[sub_resource type="Animation" id="Animation_10j68"]
+resource_name = "4 to 5"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -4.1887903), Vector3(0, 0, -5.2359877)]
+}
+
+[sub_resource type="Animation" id="Animation_1ur4a"]
+resource_name = "5 to 0"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -5.2359877), Vector3(0, 0, -6.2831855)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q6xsc"]
 _data = {
 &"0 to 1": SubResource("Animation_xltc0"),
 &"1 to 2": SubResource("Animation_qqi6x"),
+&"2 to 3": SubResource("Animation_q6xsc"),
+&"3 to 4": SubResource("Animation_n08md"),
+&"4 to 5": SubResource("Animation_10j68"),
+&"5 to 0": SubResource("Animation_1ur4a"),
 &"RESET": SubResource("Animation_mdedv")
 }
+
+[sub_resource type="Animation" id="Animation_ju47i"]
+resource_name = "0 to 1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.0471976)]
+}
+
+[sub_resource type="Animation" id="Animation_lbtog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tmr4r"]
+resource_name = "1 to 2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.0471976), Vector3(0, 0, -2.0943952)]
+}
+
+[sub_resource type="Animation" id="Animation_ntin6"]
+resource_name = "2 to 3"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.0943952), Vector3(0, 0, -3.1415927)]
+}
+
+[sub_resource type="Animation" id="Animation_wyxsj"]
+resource_name = "3 to 4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -3.1415927), Vector3(0, 0, -4.1887903)]
+}
+
+[sub_resource type="Animation" id="Animation_cont8"]
+resource_name = "4 to 5"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -4.1887903), Vector3(0, 0, -5.2359877)]
+}
+
+[sub_resource type="Animation" id="Animation_bq1ik"]
+resource_name = "5 to 0"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/porta/btn_3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -5.2359877), Vector3(0, 0, -6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_301mo"]
+_data = {
+&"0 to 1": SubResource("Animation_ju47i"),
+&"1 to 2": SubResource("Animation_tmr4r"),
+&"2 to 3": SubResource("Animation_ntin6"),
+&"3 to 4": SubResource("Animation_wyxsj"),
+&"4 to 5": SubResource("Animation_cont8"),
+&"5 to 0": SubResource("Animation_bq1ik"),
+&"RESET": SubResource("Animation_lbtog")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysb68"]
+size = Vector3(0.04272461, 0.037597656, 0.056640625)
 
 [node name="cofre" type="Node3D"]
 script = ExtResource("1_aie4e")
@@ -277,40 +473,45 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.013879597, 0, 0)
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.013879597, 0, -0.106527805)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, 0.10473527)
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.056384504, 0.17326915, 0.10473527)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, -0.00060480833)
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.056384504, 0.17326915, -0.00060480833)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
 
 [node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.045398176, 0.17326915, -0.11224574)
+transform = Transform3D(-0.004897281, -0.022290936, 0.29913062, -0.20817828, -0.21513689, -0.01944004, 0.21595788, -0.20789234, -0.0119563425, 0.056384504, 0.17326915, -0.11224574)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
 
 [node name="CSGPolygon3D4" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, -0.10752967)
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.056384504, -0.16440202, -0.10752967)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
 
 [node name="CSGPolygon3D5" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, 0.0018833578)
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.056384504, -0.16440202, 0.0018833578)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
 
 [node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGBox3D/porta"]
-transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.045398176, -0.16440202, 0.10752351)
+transform = Transform3D(-0.0048972797, -0.022290934, 0.2991306, 0.20884816, 0.21448995, 0.0194028, -0.21531007, 0.20855968, 0.0120166745, 0.056384504, -0.16440202, 0.10752351)
 polygon = PackedVector2Array(0, 0, 0.00081831217, 0.11538245, 0.03461176, 0.034482956, 0.11653525, 0.0017135479)
 depth = 0.05
 material = SubResource("StandardMaterial3D_0fx2o")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/porta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033935547, 0, 0)
+size = Vector3(0.16088867, 0.42773438, 0.453125)
+material = SubResource("StandardMaterial3D_ypnwh")
 
 [node name="porta_cofre" type="AnimationPlayer" parent="."]
 libraries = {
@@ -328,3 +529,60 @@ libraries = {
 }
 
 [node name="botao_3" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_301mo")
+}
+
+[node name="seta1Cima" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta1Cima"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="seta1Baixo" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30952275, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta1Baixo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="seta2Cima" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0023804307, -0.104854584)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta2Cima"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="seta2Baixo" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31395152, -0.104854584)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta2Baixo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="seta3Cima" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0023804307, -0.21658039)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta3Cima"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="seta3Baixo" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3139515, -0.21264648)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="seta3Baixo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543884)
+shape = SubResource("BoxShape3D_ysb68")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[connection signal="input_event" from="seta1Cima" to="." method="_on_seta_1_cima_input_event"]
+[connection signal="input_event" from="seta1Baixo" to="." method="_on_seta_1_baixo_input_event"]
+[connection signal="input_event" from="seta2Cima" to="." method="_on_seta_2_cima_input_event"]
+[connection signal="input_event" from="seta2Baixo" to="." method="_on_seta_2_baixo_input_event"]
+[connection signal="input_event" from="seta3Cima" to="." method="_on_seta_3_cima_input_event"]
+[connection signal="input_event" from="seta3Baixo" to="." method="_on_seta_3_baixo_input_event"]

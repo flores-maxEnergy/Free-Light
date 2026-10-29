@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hbsmy5au8vt1"]
+[gd_scene load_steps=11 format=3 uid="uid://hbsmy5au8vt1"]
 
 [ext_resource type="PackedScene" uid="uid://bydrhhe1rme45" path="res://assets/modelagens/F7.tscn" id="1_t2tgb"]
 [ext_resource type="Script" uid="uid://qm848wcdvtdu" path="res://scripts/personagem.gd" id="1_wtnic"]
@@ -200,11 +200,39 @@ tracks/4/keys = {
 "values": [Vector3(-0.16345008, -1.5707964, 7.2089397e-09), Vector3(-0.4590216, -1.5707964, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_hfj4i"]
+resource_name = "trocar_camera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cabeca/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.6661996, 1.2540464, 0), Vector3(0.334, 0.9, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cabeca/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.4590216, -1.5707964, 0), Vector3(0.06457717, -1.5707964, -2.1901345e-08)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_en60c"]
 _data = {
 &"RESET": SubResource("Animation_wtnic"),
 &"agachar": SubResource("Animation_bss74"),
-&"levantar": SubResource("Animation_en60c")
+&"levantar": SubResource("Animation_en60c"),
+&"trocar_camera": SubResource("Animation_hfj4i")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bss74"]
@@ -223,7 +251,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 [node name="cabeca" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-transform = Transform3D(-4.371139e-08, 0.4430711, -0.8964862, 0, 0.8964862, 0.4430711, 1, 1.9367253e-08, -3.918666e-08, -1.6661996, 1.2540464, 0)
+transform = Transform3D(-4.371139e-08, 0.4430712, -0.8964864, 0, 0.8964864, 0.4430712, 1, 1.9367256e-08, -3.9186666e-08, -1.6661996, 1.2540464, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.31586483, 0, 0, 0, 0.31586483, 0, 0, 0, 0.31586483, 0, 0.82750684, 0)
@@ -241,5 +269,24 @@ libraries = {
 [node name="corpo" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061553955, -0.09820557, 0.007385254)
 shape = SubResource("BoxShape3D_bss74")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="mira" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -64.0
+offset_right = 9.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "."
 
 [editable path="F-7E3"]

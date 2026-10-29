@@ -16,12 +16,15 @@ var energia_atual := 100.0
 
 @onready var animation: AnimationPlayer = $animation
 var esta_agachado : bool = false
+var camera_primeira_ps = false
 var life = 1
+@onready var mira_label: Label = $CanvasLayer/mira
 
 #itens
 var item_1 : bool = false
 
 func _ready() -> void:
+	mira_label.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera.current = true
 
@@ -41,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_y(-event.relative.x * sensibilidade)
+			
 
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ESCAPE:
@@ -64,6 +68,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			velocidade = 5.0
 			animation.play("levantar")
 			esta_agachado = false
+	
+	if event.is_action_pressed("troca_a_camera"):
+		if not camera_primeira_ps:
+			animation.play("trocar_camera")
+			camera_primeira_ps = true
+			mira_label.visible = true
+		else:
+			animation.play("trocar_camera", -1.0, -1.0, true)
+			camera_primeira_ps = false
+			mira_label.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
