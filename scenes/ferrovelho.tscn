@@ -82,9 +82,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.427273, -0.073643446, -32
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8624153, 1.2735596, -35.607666)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Instrucao" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 433.0
 offset_top = 243.0
 offset_right = 714.0

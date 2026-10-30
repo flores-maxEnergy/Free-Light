@@ -61,23 +61,35 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("agachar"):
 		if not esta_agachado:
-			animation.play("agachar")
-			esta_agachado = true
-			velocidade = 3.0
+			if not camera_primeira_ps:
+				esta_agachado = true
+				velocidade = 3.0
+				animation.play("agachar")
 		else:
-			velocidade = 5.0
-			animation.play("levantar")
-			esta_agachado = false
+			if not camera_primeira_ps:
+				velocidade = 5.0
+				esta_agachado = false
+				animation.play("levantar")
 	
 	if event.is_action_pressed("troca_a_camera"):
-		if not camera_primeira_ps:
-			animation.play("trocar_camera")
-			camera_primeira_ps = true
-			mira_label.visible = true
+		if not esta_agachado:
+			if not camera_primeira_ps:
+				animation.play("troca_camera_levantado")
+				camera_primeira_ps = true
+				mira_label.visible = true
+			else:
+				animation.play("troca_camera_levantado", -1.0, -1.0, true)
+				camera_primeira_ps = false
+				mira_label.visible = false
 		else:
-			animation.play("trocar_camera", -1.0, -1.0, true)
-			camera_primeira_ps = false
-			mira_label.visible = false
+			if not camera_primeira_ps:
+				animation.play("trocar_camera_quando_agachado")
+				camera_primeira_ps = true
+				mira_label.visible = true
+			else:
+				animation.play("trocar_camera_quando_agachado", -1.0, -1.0, true)
+				camera_primeira_ps = false
+				mira_label.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
