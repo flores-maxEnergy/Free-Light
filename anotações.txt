@@ -5,3 +5,4 @@ ok	2 - led inimigo
 	5 - chuva
 	6 - Fazer máquina de estados do inimigo.
 	7 - animações
+	8 - Arrumar textura do jogador
