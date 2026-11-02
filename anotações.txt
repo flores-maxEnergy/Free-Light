@@ -3,3 +3,5 @@ ok	2 - led inimigo
 	3 - texturas
 	4 - ambiente
 	5 - chuva
+	6 - Fazer máquina de estados do inimigo.
+	7 - animações
