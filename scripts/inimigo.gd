@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var dano = 1
 @export var raio_visao = 15.0
 var atirou: bool = false
+@onready var animation_bones: AnimationPlayer = $animation_bones
 
 var curvaspeed = 4.0
 @onready var alvo: Node3D
@@ -28,6 +29,7 @@ func _physics_process(delta: float) -> void:
 			
 		if visto:
 			ir_para_o_jogador(alvo.global_position)
+			animation_bones.play("ArmatureAction")
 			var olhar_para_o_jogador = alvo.global_position
 			olhar_para_o_jogador.y = global_position.y
 			look_at(olhar_para_o_jogador, Vector3.UP)
