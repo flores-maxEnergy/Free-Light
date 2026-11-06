@@ -22,6 +22,8 @@ var timer_caminho: float = 0.0
 var ind_rota: int = 0
 var visto: bool = false
 var jogador: Node3D = null
+var ult_pos_vista: Vector3
+var indo_ult_pos: bool = false
 
 func _ready() -> void:
 	jogador = get_tree().get_first_node_in_group("jogador")
@@ -59,6 +61,7 @@ func mudar_estado(novo: Estado) -> void:
 			animation_bones.play("ArmatureAction")
 		Estado.SEGUIR:
 			timer_caminho = 0.0
+			indo_ult_pos = false
 			animation_bones.play("ArmatureAction")
 
 # ---------- Estados ----------
@@ -87,10 +90,18 @@ func estado_patrulha(delta: float) -> void:
 
 func estado_seguir(delta: float) -> void:
 	if visto:
+		indo_ult_pos = false
+		ult_pos_vista = jogador.global_position
+		
 		timer_caminho -= delta
 		if timer_caminho <= 0.0:
-			navigation_agent.target_position = jogador.global_position
+			navigation_agent.target_position = ult_pos_vista
 			timer_caminho = intervalo_caminho
+	
+	elif not indo_ult_pos:
+		indo_ult_pos = true
+		navigation_agent.target_position = ult_pos_vista
+	
 	elif navigation_agent.is_navigation_finished():
 		mudar_estado(Estado.PARADO)
 		return
