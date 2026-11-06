@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://dym8fouev5el3"]
+[gd_scene load_steps=14 format=4 uid="uid://dym8fouev5el3"]
 
 [ext_resource type="Script" uid="uid://d4nosg0kkebfj" path="res://scripts/inimigo.gd" id="1_pt50e"]
 [ext_resource type="Texture2D" uid="uid://b6j6v8kc0t3ik" path="res://assets/modelagens/V1-G1L_detalhes.png" id="2_4er16"]
 [ext_resource type="Texture2D" uid="uid://cs88uy5b5lsqu" path="res://assets/modelagens/V1-G1L_RODA.png" id="3_ui621"]
-[ext_resource type="PackedScene" uid="uid://sv7eri1dyitv" path="res://assets/modelagens/V1-G1L.glb" id="4_adsyq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4er16"]
 height = 1.4408569
@@ -216,7 +215,7 @@ shape = SubResource("CylinderShape3D_4er16")
 collision_mask = 7
 
 [node name="MeshInstance3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.04045956, -0.0053517413, 0.9991664, -0.04494621, 0.99898267, 0.0035307372, -0.99816936, -0.044765905, -0.04065896, -0.005676925, 1.6665574, -0.1710976)
+transform = Transform3D(-0.040459555, -0.005351741, 0.99916637, -0.044946205, 0.9989826, 0.003530737, -0.9981693, -0.044765905, -0.040658955, -0.005676925, 1.6665574, -0.1710976)
 mesh = SubResource("CylinderMesh_21tsg")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -398,9 +397,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_5jfjl")
 }
 
-[node name="V1-G1L" parent="." instance=ExtResource("4_adsyq")]
-visible = false
+[node name="rotas" type="Node3D" parent="."]
 
-[connection signal="area_entered" from="corpo" to="." method="_on_corpo_area_entered"]
+[node name="Marker3D" type="Marker3D" parent="rotas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.222089)
+
+[node name="Marker3D2" type="Marker3D" parent="rotas"]
+
+[node name="Marker3D3" type="Marker3D" parent="rotas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8522944, 0, 0)
+
 [connection signal="body_entered" from="corpo" to="." method="_on_corpo_body_entered"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
