@@ -14,7 +14,7 @@ var energia_atual := 100.0
 @onready var barra_energia: ProgressBar = get_node("../BarraLuz/BarraEnergia")
 @onready var luz_peito: SpotLight3D = $SpotLight3D
 
-@onready var animation: AnimationPlayer = $animation
+@onready var animation: AnimationPlayer = $AnimationPlayer
 var esta_agachado : bool = false
 var camera_primeira_ps = false
 @onready var batendo_no_teto: ShapeCast3D = $batendo_no_teto
@@ -64,43 +64,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("agachar") and not nao_pode_levantar:
 		if not esta_agachado:
-			if not camera_primeira_ps:
-				velocidade = 3.0
-				esta_agachado = true
-				animation.play("agachar")
-			else:
-				velocidade = 3.0
-				esta_agachado = true
-				animation.play("agachar_primeira_ps")
+			velocidade = 3.0
+			esta_agachado = true
+			animation.play("agachar")
 		else:
-			if not camera_primeira_ps:
-				velocidade = 5.0
-				esta_agachado = false
-				animation.play("levantar")
-			else:
-				velocidade = 5.0
-				esta_agachado = false
-				animation.play("agachar_primeira_ps", -1.0, -1.0, true)
-	
-	if event.is_action_pressed("troca_a_camera"):
-		if not esta_agachado:
-			if not camera_primeira_ps:
-				animation.play("trocar_camera_levantado")
-				camera_primeira_ps = true
-				mira_label.visible = true
-			else:
-				animation.play("trocar_camera_levantado", -1.0, -1.0, true)
-				camera_primeira_ps = false
-				mira_label.visible = false
-		else:
-			if not camera_primeira_ps:
-				animation.play("trocar_camera_quando_agachado")
-				camera_primeira_ps = true
-				mira_label.visible = true
-			else:
-				animation.play("trocar_camera_quando_agachado", -1.0, -1.0, true)
-				camera_primeira_ps = false
-				mira_label.visible = false
+			velocidade = 5.0
+			esta_agachado = false
+			animation.play("agachar", -1.0, -1.0, true)
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
