@@ -11,8 +11,13 @@ grow = true
 
 [node name="F-7E3" instance=ExtResource("1_u75ne")]
 
-[node name="cabeca" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.9109455, 0)
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.36772805, 1, 0.06278195)
+bones/2/position = Vector3(2.543226e-16, 0.9280594, -0.22104606)
+bones/3/position = Vector3(1.4532375e-16, 0.92805946, 0.37035942)
+
+[node name="cabeca" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.022409618, 0)
 
 [node name="luz_cabeca" type="OmniLight3D" parent="Armature/Skeleton3D/cabeca" index="0"]
 transform = Transform3D(3.1659112, 0, 0, 0, 3.1659112, 0, 0, 0, 3.1659112, -0.12142709, 3.9178488, 0)
