@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dym8fouev5el3"]
+[gd_scene load_steps=15 format=4 uid="uid://dym8fouev5el3"]
 
 [ext_resource type="Script" uid="uid://d4nosg0kkebfj" path="res://scripts/inimigo.gd" id="1_pt50e"]
 [ext_resource type="Texture2D" uid="uid://b6j6v8kc0t3ik" path="res://assets/modelagens/V1-G1L_detalhes.png" id="2_4er16"]
@@ -27,7 +27,7 @@ cull_mode = 2
 albedo_texture = ExtResource("2_4er16")
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_jc2kt"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_21tsg"]
 resource_name = "V1-G1L_Cylinder_002"
 _surfaces = [{
 "aabb": AABB(-0.3237888, 0.43361074, -1.4745724, 0.6475776, 1.5633585, 2.7772415),
@@ -47,7 +47,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_4v6kx"]
+[sub_resource type="Skin" id="Skin_4er16"]
 resource_name = "Skin"
 bind_count = 23
 bind/0/name = &"Bone.004"
@@ -125,7 +125,7 @@ resource_name = "Material.002"
 cull_mode = 2
 albedo_texture = ExtResource("3_ui621")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_rmr57"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ui621"]
 resource_name = "V1-G1L_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-0.39214718, 0.0037605166, -0.39669248, 0.78429437, 0.7637721, 0.79338497),
@@ -145,7 +145,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="Animation" id="Animation_3kevt"]
-resource_name = "ArmatureAction"
+resource_name = "andar"
 loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -157,44 +157,104 @@ tracks/0/keys = PackedFloat32Array(0, 1, -0.70441604, 0.06162843, -0.061628412, 
 tracks/1/type = "rotation_3d"
 tracks/1/imported = true
 tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:rodas")
+tracks/1/path = NodePath("Armature/Skeleton3D:cabeca")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.7071068, -2.8948582e-16, 2.8948582e-16, 0.7071068, 0.033333335, 1, -0.7071068, -2.8948582e-16, 2.8948582e-16, 0.7071068, 0.06666667, 1, -0.70707303, -0.006910563, 0.006910563, 0.70707303, 0.1, 1, -0.7067477, -0.022533452, 0.022533456, 0.7067477, 0.13333334, 1, -0.7056335, -0.045622602, 0.04562261, 0.70563346, 0.16666667, 1, -0.7034437, -0.07188124, 0.07188125, 0.70344377, 0.2, 1, -0.70086205, -0.09376757, 0.09376757, 0.70086217, 0.23333333, 1, -0.69910705, -0.106063195, 0.106063195, 0.699107, 0.26666668, 1, -0.6986743, -0.10887706, 0.10887706, 0.6986743, 0.3, 1, -0.6994369, -0.103865854, 0.103865854, 0.69943684, 0.33333334, 1, -0.70079774, -0.09424709, 0.09424709, 0.70079774, 0.36666667, 1, -0.7025992, -0.07971414, 0.07971414, 0.7025992, 0.4, 1, -0.70434767, -0.062405065, 0.062405057, 0.70434767, 0.43333334, 1, -0.70580214, -0.042934474, 0.042934466, 0.7058021, 0.46666667, 1, -0.7067669, -0.021923847, 0.021923847, 0.7067668, 0.53333336, 1, -0.7067668, 0.021923847, -0.021923847, 0.7067669, 0.56666666, 1, -0.70580214, 0.042934474, -0.042934474, 0.70580214, 0.6, 1, -0.70434767, 0.062405087, -0.062405087, 0.70434767, 0.6333333, 1, -0.7025992, 0.079714134, -0.079714134, 0.7025992, 0.6666667, 1, -0.70079774, 0.09424709, -0.09424709, 0.70079774, 0.7, 1, -0.6994368, 0.103865854, -0.103865854, 0.69943684, 0.73333335, 1, -0.6986743, 0.10887706, -0.10887706, 0.6986743, 0.76666665, 1, -0.6989067, 0.10737477, -0.10737477, 0.69890684, 0.8, 1, -0.7002211, 0.09843977, -0.09843977, 0.7002211, 0.8333333, 1, -0.70232064, 0.082132116, -0.08213212, 0.7023207, 0.9, 1, -0.7060057, 0.039446443, -0.03944645, 0.7060057, 0.93333334, 1, -0.7068087, 0.020529956, -0.020529963, 0.7068087, 0.96666664, 1, -0.70707643, 0.0065605943, -0.0065605943, 0.7070763, 1, 1, -0.7071068, 1.3190196e-09, -1.3190196e-09, 0.7071068)
-tracks/2/type = "value"
-tracks/2/imported = false
+tracks/1/keys = PackedFloat32Array(0, 1, -5.551115e-17, 4.0939474e-16, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
 tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance3D:position")
+tracks/2/path = NodePath("Armature/Skeleton3D:rodas")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.28, 0.42, 0.54, 0.62, 0.67),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.005676925, 1.6665574, -0.1710976), Vector3(-0.005676925, 1.6665574, -0.20586565), Vector3(0.02592954, 1.6665574, -0.22261322), Vector3(0.01978384, 1.6665574, -0.19729114), Vector3(0.014516093, 1.6665574, -0.18294789), Vector3(0.011004265, 1.6665574, -0.16601382), Vector3(0.008809371, 1.6665574, -0.15775885)]
-}
+tracks/2/keys = PackedFloat32Array(0, 1, -0.7071068, -2.8948582e-16, 2.8948582e-16, 0.7071068, 0.033333335, 1, -0.7071068, -2.8948582e-16, 2.8948582e-16, 0.7071068, 0.06666667, 1, -0.70707303, -0.006910563, 0.006910563, 0.70707303, 0.1, 1, -0.7067477, -0.022533452, 0.022533456, 0.7067477, 0.13333334, 1, -0.7056335, -0.045622602, 0.04562261, 0.70563346, 0.16666667, 1, -0.7034437, -0.07188124, 0.07188125, 0.70344377, 0.2, 1, -0.70086205, -0.09376757, 0.09376757, 0.70086217, 0.23333333, 1, -0.69910705, -0.106063195, 0.106063195, 0.699107, 0.26666668, 1, -0.6986743, -0.10887706, 0.10887706, 0.6986743, 0.3, 1, -0.6994369, -0.103865854, 0.103865854, 0.69943684, 0.33333334, 1, -0.70079774, -0.09424709, 0.09424709, 0.70079774, 0.36666667, 1, -0.7025992, -0.07971414, 0.07971414, 0.7025992, 0.4, 1, -0.70434767, -0.062405065, 0.062405057, 0.70434767, 0.43333334, 1, -0.70580214, -0.042934474, 0.042934466, 0.7058021, 0.46666667, 1, -0.7067669, -0.021923847, 0.021923847, 0.7067668, 0.53333336, 1, -0.7067668, 0.021923847, -0.021923847, 0.7067669, 0.56666666, 1, -0.70580214, 0.042934474, -0.042934474, 0.70580214, 0.6, 1, -0.70434767, 0.062405087, -0.062405087, 0.70434767, 0.6333333, 1, -0.7025992, 0.079714134, -0.079714134, 0.7025992, 0.6666667, 1, -0.70079774, 0.09424709, -0.09424709, 0.70079774, 0.7, 1, -0.6994368, 0.103865854, -0.103865854, 0.69943684, 0.73333335, 1, -0.6986743, 0.10887706, -0.10887706, 0.6986743, 0.76666665, 1, -0.6989067, 0.10737477, -0.10737477, 0.69890684, 0.8, 1, -0.7002211, 0.09843977, -0.09843977, 0.7002211, 0.8333333, 1, -0.70232064, 0.082132116, -0.08213212, 0.7023207, 0.9, 1, -0.7060057, 0.039446443, -0.03944645, 0.7060057, 0.93333334, 1, -0.7068087, 0.020529956, -0.020529963, 0.7068087, 0.96666664, 1, -0.70707643, 0.0065605943, -0.0065605943, 0.7070763, 1, 1, -0.7071068, 1.3190196e-09, -1.3190196e-09, 0.7071068)
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MeshInstance3D:rotation")
+tracks/3/path = NodePath("brilho:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.12),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.12, 0.27, 0.37, 0.53, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.0035307459, 1.6114668, -0.044961654)]
+"values": [Vector3(-0.006739497, 1.6791643, -0.15968095), Vector3(-0.006739497, 1.6791643, -0.186702), Vector3(-0.006739497, 1.6791643, -0.2070619), Vector3(-0.006739497, 1.6791643, -0.20057136), Vector3(-0.006739497, 1.6791643, -0.16017127), Vector3(-0.006739497, 1.6791643, -0.15145913)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("brilho:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.72),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.012329173, 1.6131269, 0.068537556), Vector3(0.015618657, 1.6120273, -0.010115741)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jfjl"]
+[sub_resource type="Animation" id="Animation_5jfjl"]
+resource_name = "RESET"
+length = 2.3333333
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.7071068, -6.8682618e-18, -6.8682643e-18, 0.7071068)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:cabeca")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.36666667, 1, 0, 0, 0, 1, 0.4, 1, -3.156526e-27, 0.0024186964, -1.1747515e-26, 0.99999714, 0.43333334, 1, -1.0978213e-26, 0.008412083, 9.932353e-28, 0.9999647, 0.46666667, 1, -2.3772428e-26, 0.018215682, 3.1660002e-26, 0.9998342, 0.5, 1, -4.0644037e-26, 0.031143593, 3.0890215e-26, 0.99951494, 0.53333336, 1, -6.1150895e-26, 0.04685702, -1.364248e-25, 0.9989016, 0.56666666, 1, -8.3012326e-26, 0.0636084, -1.804633e-25, 0.997975, 0.6, 1, -1.0530642e-25, 0.08069131, -1.839151e-25, 0.99673915, 0.6333333, 1, -1.271143e-25, 0.097401634, -1.8802177e-25, 0.99524516, 0.6666667, 1, -1.4752281e-25, 0.113039725, -1.9256436e-25, 0.9935905, 0.7, 1, -1.6427867e-25, 0.12587894, 4.703753e-25, 0.99204564, 0.73333335, 1, -1.7696419e-25, 0.13559926, 6.343703e-25, 0.9907638, 0.76666665, 1, -1.8471051e-25, 0.14153488, 6.3275046e-25, 0.9899333, 0.8, 1, -1.8783471e-25, 0.1439288, 6.3207253e-25, 0.989588, 1.2, 1, -1.878347e-25, 0.1439288, 6.3207253e-25, 0.989588, 1.2333333, 1, -1.7868969e-25, 0.1369214, 6.340088e-25, 0.9905819, 1.2666667, 1, -1.5585972e-25, 0.119427904, 3.0572198e-25, 0.992843, 1.3, 1, -1.1818154e-25, 0.09055693, -1.8667805e-25, 0.99589133, 1.3333334, 1, -6.793171e-26, 0.05205284, -1.784321e-25, 0.99864435, 1.3666667, 1, -5.9802813e-27, 0.0045824028, -5.1412016e-26, 0.9999895, 1.4, 1, 6.0482514e-26, -0.046344876, -1.1708196e-25, 0.9989255, 1.4333333, 1, 1.282819e-25, -0.098296314, 1.4451738e-25, 0.99515724, 1.4666667, 1, 1.9424947e-25, -0.14884414, 6.302556e-25, 0.98886067, 1.5, 1, 2.5529908e-25, -0.19562353, 6.144559e-25, 0.9806791, 1.5333333, 1, 3.045044e-25, -0.23332725, 5.9771996e-25, 0.9723983, 1.5666667, 1, 3.4121412e-25, -0.26145613, 5.8343344e-25, 0.9652154, 1.6, 1, 3.633793e-25, -0.27844024, 5.7402415e-25, 0.9604536, 1.6333333, 1, 3.722415e-25, -0.28523093, 5.700316e-25, 0.95845884, 1.9, 1, 3.7224147e-25, -0.28523093, 5.7003153e-25, 0.95845884, 1.9333333, 1, 3.6823909e-25, -0.2821641, 5.718482e-25, 0.9593662, 1.9666667, 1, 3.5676146e-25, -0.27336937, 5.769209e-25, 0.96190923, 2, 1, 3.34827e-25, -0.25656202, 5.8624583e-25, 0.96652776, 2.0333333, 1, 3.0212113e-25, -0.23150107, 5.9873424e-25, 0.97283465, 2.0666666, 1, 2.6373343e-25, -0.20208642, 6.1159356e-25, 0.9793678, 2.1, 1, 2.2140086e-25, -0.16964898, 6.2370804e-25, 0.98550457, 2.1666667, 1, 1.3228853e-25, -0.10136642, -1.8903752e-25, 0.99484915, 2.2, 1, 9.1250906e-26, -0.06992124, -1.8185076e-25, 0.9975525, 2.2333333, 1, 5.571591e-26, -0.042692453, -5.341997e-26, 0.9990883, 2.2666667, 1, 2.7493584e-26, -0.021067025, 3.1423673e-26, 0.99977803, 2.3, 1, 8.3476645e-27, -0.00639642, 2.5647057e-26, 0.9999796, 2.3333333, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:rodas")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.7071068, 0, 0, 0.7071068)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("brilho:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.006739497, 1.6791643, -0.022283733)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("brilho:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.012127402, 1.6131852, 0.07329837)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t4my"]
 _data = {
-&"ArmatureAction": SubResource("Animation_3kevt")
+&"RESET": SubResource("Animation_5jfjl"),
+&"andar": SubResource("Animation_3kevt")
 }
 
 [node name="inimigo" type="CharacterBody3D"]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_pt50e")
+speed_patrulha = 1.0
+speed_seguir = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.02015892, 1.0081177, -0.019009432)
@@ -214,12 +274,22 @@ shape = SubResource("CylinderShape3D_4er16")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 collision_mask = 7
 
-[node name="MeshInstance3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.040459555, -0.005351741, 0.99916637, -0.044946205, 0.9989826, 0.003530737, -0.9981693, -0.044765905, -0.040658955, -0.005676925, 1.6665574, -0.1710976)
+[node name="brilho" type="CSGMesh3D" parent="."]
+transform = Transform3D(-0.04137502, 0.015186991, 0.9990277, 0.0732273, 0.99724096, -0.0121271, -0.99645567, 0.07265441, -0.04237301, -0.006739497, 1.6791643, -0.022283733)
 mesh = SubResource("CylinderMesh_21tsg")
 
+[node name="rotas" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="rotas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2696056)
+
+[node name="Marker3D2" type="Marker3D" parent="rotas"]
+
+[node name="Marker3D3" type="Marker3D" parent="rotas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0367992, 0, 0)
+
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(-2.3179272e-08, 0, 0.53027993, 0, 0.5302799, 0, -0.53027993, 0, -2.3179272e-08, 0, 0.77503896, 0)
+transform = Transform3D(-2.3179272e-08, 0, 0.53027993, 0, 0.53027993, 0, -0.53027993, 0, -2.3179272e-08, 0, 0.77503896, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "Bone.004"
@@ -227,7 +297,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(0.99999994, 0, 0, 0, 0, 0.99999994, 0, -0.99999994, 0, 0, 0, 0.22172013)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0.22172013)
-bones/0/rotation = Quaternion(-0.70441604, 0.061628424, -0.06162841, 0.70441604)
+bones/0/rotation = Quaternion(-0.7071068, -6.8682626e-18, -6.868265e-18, 0.7071068)
 bones/0/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 bones/1/name = "barriga"
 bones/1/parent = 0
@@ -381,31 +451,21 @@ bones/22/parent = 0
 bones/22/rest = Transform3D(0.99999994, 0, 0, 0, 0, 0.99999994, 0, -0.99999994, 0, 0, 0.22124542, 0)
 bones/22/enabled = true
 bones/22/position = Vector3(0, 0.22124542, 0)
-bones/22/rotation = Quaternion(-0.7071068, -2.8948584e-16, 2.8948584e-16, 0.7071068)
+bones/22/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/22/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 
 [node name="inimigo" type="MeshInstance3D" parent="Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_jc2kt")
-skin = SubResource("Skin_4v6kx")
+mesh = SubResource("ArrayMesh_21tsg")
+skin = SubResource("Skin_4er16")
 
 [node name="roda" type="MeshInstance3D" parent="Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_rmr57")
-skin = SubResource("Skin_4v6kx")
+mesh = SubResource("ArrayMesh_ui621")
+skin = SubResource("Skin_4er16")
 
 [node name="animation_bones" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_5jfjl")
+&"": SubResource("AnimationLibrary_6t4my")
 }
-
-[node name="rotas" type="Node3D" parent="."]
-
-[node name="Marker3D" type="Marker3D" parent="rotas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.222089)
-
-[node name="Marker3D2" type="Marker3D" parent="rotas"]
-
-[node name="Marker3D3" type="Marker3D" parent="rotas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8522944, 0, 0)
 
 [connection signal="body_entered" from="corpo" to="." method="_on_corpo_body_entered"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

@@ -86,7 +86,7 @@ transform = Transform3D(-0.9990421, 0, -0.043758906, 0, 1, 0, 0.043758906, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.427273, -0.073643446, -32.784756)
 
 [node name="inimigo" parent="." instance=ExtResource("6_pmwl0")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.281755, 3.4062696, -76.47867)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -75.23673)
 
 [node name="Marker3D" parent="inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)

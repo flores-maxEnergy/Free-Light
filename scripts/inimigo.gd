@@ -7,6 +7,9 @@ extends CharacterBody3D
 @export var tempo_parado: float = 2.0
 @export var velocidade_giro: float = 8.0
 @export var intervalo_caminho: float = 0.2
+var distancia_chegada = 0.8
+var tempo_travado = 1.0
+var tempo_visao = 0.25
 
 #------------- Nós
 @onready var animation_bones: AnimationPlayer = $animation_bones
@@ -24,6 +27,8 @@ var visto: bool = false
 var jogador: Node3D = null
 var ult_pos_vista: Vector3
 var indo_ult_pos: bool = false
+var destino_atual: Vector3
+var travou: bool = false
 
 func _ready() -> void:
 	jogador = get_tree().get_first_node_in_group("jogador")
@@ -50,19 +55,21 @@ func _physics_process(delta: float) -> void:
 
 func mudar_estado(novo: Estado) -> void:
 	estado_atual = novo
-
+	timer_parado = 0.0
+	travou = false
+	
 	match novo:
 		Estado.PARADO:
 			parar()
 			timer_parado = tempo_parado
-			animation_bones.stop()
+			animation_bones.play("RESET")
 		Estado.PATRULHA:
 			navigation_agent.target_position = rotas[ind_rota].global_position
-			animation_bones.play("ArmatureAction")
+			animation_bones.play("andar")
 		Estado.SEGUIR:
 			timer_caminho = 0.0
 			indo_ult_pos = false
-			animation_bones.play("ArmatureAction")
+			animation_bones.play("andar")
 
 # ---------- Estados ----------
 func estado_parado(delta: float) -> void:
@@ -82,7 +89,8 @@ func estado_patrulha(delta: float) -> void:
 		return
 	
 	if navigation_agent.is_navigation_finished():
-		ind_rota = (ind_rota + 1) % rotas.size()
+		if not rotas.is_empty():
+			ind_rota = (ind_rota + 1) % rotas.size()
 		mudar_estado(Estado.PARADO)
 		return
 	
@@ -95,18 +103,26 @@ func estado_seguir(delta: float) -> void:
 		
 		timer_caminho -= delta
 		if timer_caminho <= 0.0:
-			navigation_agent.target_position = ult_pos_vista
+			definir_destino(ult_pos_vista)
 			timer_caminho = intervalo_caminho
-	
 	elif not indo_ult_pos:
 		indo_ult_pos = true
-		navigation_agent.target_position = ult_pos_vista
+		definir_destino(ult_pos_vista)
 	
-	elif navigation_agent.is_navigation_finished():
+	if not visto and (chegou_no_destino() or travou):
 		mudar_estado(Estado.PARADO)
 		return
 	
 	mover_pelo_caminho(speed_seguir, delta)
+
+func definir_destino(pos: Vector3):
+	destino_atual = pos
+	navigation_agent.target_position = pos
+
+func chegou_no_destino():
+	var local = destino_atual - global_position
+	local = 0.0
+	return local.length() <= distancia_chegada or navigation_agent.is_navigation_finished()
 
 func mover_pelo_caminho(vel: float, delta: float) -> void:
 	if navigation_agent.is_navigation_finished():
