@@ -129,6 +129,7 @@ func pegar_item_1():
 	item_1 = true
 	print("pergou a chave: " + str(item_1))
 
+const GAME_OVER = preload("res://scenes/tela_derrota.tscn")
 func tomar_dano():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_file("res://scenes/tela_derrota.tscn")
+	get_tree().call_deferred("change_scene_to_packed", GAME_OVER)

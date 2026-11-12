@@ -86,7 +86,13 @@ transform = Transform3D(-0.9990421, 0, -0.043758906, 0, 1, 0, 0.043758906, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.427273, -0.073643446, -32.784756)
 
 [node name="inimigo" parent="." instance=ExtResource("6_pmwl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8624153, 1.2735596, -35.607666)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -75.23673)
+
+[node name="Marker3D" parent="inimigo/rotas" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
+
+[node name="Marker3D3" parent="inimigo/rotas" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -114,5 +120,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.463366, -0.7731581, -22.5
 [node name="Circle" parent="lixeira" index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.75016975, -0.34641695, 1.8244781)
 
+[node name="Light" parent="lixeira" index="2"]
+visible = true
+
 [editable path="item_1"]
+[editable path="inimigo"]
 [editable path="lixeira"]

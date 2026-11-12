@@ -418,11 +418,13 @@ _data = {
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_wtnic")
+velocidade = 6.0
 
 [node name="cabeca" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6911999, 1.3793948, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
+
 transform = Transform3D(-3.4213997e-08, 0.4432902, -0.8963781, 1.9204695e-08, 0.8963781, 0.4432902, 1, -2.0479385e-09, -3.918193e-08, -0.0039259195, 0.0025384426, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
