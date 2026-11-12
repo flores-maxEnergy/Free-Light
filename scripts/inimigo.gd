@@ -10,6 +10,7 @@ extends CharacterBody3D
 var distancia_chegada = 0.8
 var tempo_travado = 1.0
 var tempo_visao = 0.25
+@export var tempo_patrulha_max: float = 10.0
 
 #------------- Nós
 @onready var animation_bones: AnimationPlayer = $animation_bones
@@ -22,6 +23,7 @@ enum Estado { PARADO, PATRULHA, SEGUIR }
 var estado_atual: Estado = Estado.PARADO
 var timer_parado: float = 0.0
 var timer_caminho: float = 0.0
+var timer_patrulha: float = 0.0
 var ind_rota: int = 0
 var visto: bool = false
 var jogador: Node3D = null
@@ -64,7 +66,11 @@ func mudar_estado(novo: Estado) -> void:
 			timer_parado = tempo_parado
 			animation_bones.play("RESET")
 		Estado.PATRULHA:
-			navigation_agent.target_position = rotas[ind_rota].global_position
+			if rotas.is_empty():
+				mudar_estado(Estado.PARADO)
+				return
+			timer_patrulha = 0.0
+			definir_destino(rotas[ind_rota].global_position)
 			animation_bones.play("andar")
 		Estado.SEGUIR:
 			timer_caminho = 0.0
@@ -88,9 +94,14 @@ func estado_patrulha(delta: float) -> void:
 		mudar_estado(Estado.SEGUIR)
 		return
 	
-	if navigation_agent.is_navigation_finished():
+	if chegou_no_destino():
 		if not rotas.is_empty():
 			ind_rota = (ind_rota + 1) % rotas.size()
+		mudar_estado(Estado.PARADO)
+		return
+	
+	timer_patrulha += delta
+	if timer_patrulha >= tempo_patrulha_max or travou:
 		mudar_estado(Estado.PARADO)
 		return
 	
@@ -109,20 +120,19 @@ func estado_seguir(delta: float) -> void:
 		indo_ult_pos = true
 		definir_destino(ult_pos_vista)
 	
-	if not visto and (chegou_no_destino() or travou):
+	if not visto:
 		mudar_estado(Estado.PARADO)
 		return
 	
 	mover_pelo_caminho(speed_seguir, delta)
 
+#--------------Funções
 func definir_destino(pos: Vector3):
 	destino_atual = pos
 	navigation_agent.target_position = pos
 
 func chegou_no_destino():
-	var local = destino_atual - global_position
-	local = 0.0
-	return local.length() <= distancia_chegada or navigation_agent.is_navigation_finished()
+	return navigation_agent.is_navigation_finished()
 
 func mover_pelo_caminho(vel: float, delta: float) -> void:
 	if navigation_agent.is_navigation_finished():
@@ -166,7 +176,7 @@ func verificar_visao() -> void:
 	if jogador == null:
 		return
 	
-	var alvo := jogador.global_position + Vector3.UP
+	var alvo := jogador.global_position
 	
 	if global_position.distance_to(alvo) > raio_visao:
 		return
@@ -177,7 +187,6 @@ func verificar_visao() -> void:
 	if rayCast.is_colliding():
 		var colisor := rayCast.get_collider()
 		visto = colisor != null and colisor.is_in_group("jogador")
-
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = velocity .move_toward(safe_velocity, 0.25)
