@@ -276,7 +276,7 @@ shape = SubResource("CylinderShape3D_4er16")
 collision_mask = 7
 
 [node name="brilho" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.041375015, 0.01518699, 0.99902767, 0.073227294, 0.9972409, -0.012127099, -0.99645555, 0.072654404, -0.042373005, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041375007, 0.015186989, 0.9990276, 0.07322729, 0.99724084, -0.012127098, -0.99645543, 0.072654404, -0.042373, -0.006739497, 1.6791643, -0.022283733)
 mesh = SubResource("CylinderMesh_21tsg")
 
 [node name="rotas" type="Node3D" parent="."]
