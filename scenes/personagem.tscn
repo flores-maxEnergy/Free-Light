@@ -378,10 +378,10 @@ tracks/7/path = NodePath("cabeca:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.0248849),
+"times": PackedFloat32Array(0, 1.06),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.6911999, 1.3793948, 0), Vector3(-1.6911999, 1.1567913, 0)]
+"values": [Vector3(-1.9015491, 1.5286278, 0), Vector3(-1.9015491, 0.6574272, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -393,7 +393,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0039259195, 0.0025384426, 0)]
+"values": [Vector3(-0.03498304, 0.01941824, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -402,10 +402,10 @@ tracks/9/path = NodePath("cabeca/Camera3D:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 1.0248849),
+"times": PackedFloat32Array(0, 1.06),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.45926595, -1.5707964, 2.142477e-08), Vector3(-0.16788319, -1.5707964, 8.688428e-09)]
+"values": [Vector3(-0.45926595, -1.5707964, 2.142477e-08), Vector3(0.09822717, -1.5707964, -1.8132188e-09)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4x8de"]
@@ -424,7 +424,6 @@ velocidade = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6911999, 1.3793948, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-
 transform = Transform3D(-3.4213997e-08, 0.4432902, -0.8963781, 1.9204695e-08, 0.8963781, 0.4432902, 1, -2.0479385e-09, -3.918193e-08, -0.0039259195, 0.0025384426, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
