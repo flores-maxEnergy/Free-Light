@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcafgmuwalcwd"]
 
-[ext_resource type="Script" uid="uid://b1pvp1fe575k" path="res://scripts/item_1.gd" id="1_qqodp"]
+[ext_resource type="Script" uid="uid://ck7chsjvjx45w" path="res://scripts/item_4.gd" id="1_qqodp"]
 [ext_resource type="Material" uid="uid://b8darydtoyfq" path="res://assets/texturas/item_4_texture.tres" id="2_qqodp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_umx0m"]
@@ -119,7 +119,7 @@ _data = {
 &"flutuar": SubResource("Animation_pag02")
 }
 
-[node name="item_1" type="RigidBody3D"]
+[node name="item_4" type="RigidBody3D"]
 collision_layer = 0
 script = ExtResource("1_qqodp")
 

@@ -76,9 +76,6 @@ size = Vector3(6.928467, 1, 10.841797)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="agachar/StaticBody3D"]
 shape = SubResource("BoxShape3D_osnry")
 
-[node name="item_1" parent="." instance=ExtResource("5_xsbc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.081619, 3.3236947, -50.381092)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_wafhy")
 
@@ -86,7 +83,7 @@ navigation_mesh = SubResource("NavigationMesh_wafhy")
 transform = Transform3D(-0.9990421, 0, -0.043758906, 0, 1, 0, 0.043758906, 0, -0.9990421, -26.38096, -2.1951654, -31.164154)
 
 [node name="cofre" parent="NavigationRegion3D" instance=ExtResource("6_wafhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.427273, -0.073643446, -32.784756)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.427273, -0.14184535, -32.784756)
 
 [node name="LABIRINTO" parent="NavigationRegion3D" instance=ExtResource("6_osnry")]
 
@@ -99,7 +96,7 @@ size = Vector3(4.70874, 4.5998535, 1)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigo" index="4"]
-transform = Transform3D(-0.04137499, 0.015186985, 0.9990274, 0.07322725, 0.9972406, -0.012127095, -0.99645495, 0.07265438, -0.042372994, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137497, 0.015186982, 0.99902713, 0.07322721, 0.99724036, -0.012127092, -0.9964545, 0.07265437, -0.042372983, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -139,17 +136,19 @@ visible = true
 [node name="itens" type="Node3D" parent="."]
 
 [node name="item_1" parent="itens" instance=ExtResource("5_xsbc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8584766, -77.50893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.43312, -0.28166205, -32.762085)
 
 [node name="item_2" parent="itens" instance=ExtResource("12_bm3i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9964447, -72.32253)
+visible = false
 
 [node name="item_3" parent="itens" instance=ExtResource("13_j6bkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.670784, -79.68652)
+visible = false
 
 [node name="item_4" parent="itens" instance=ExtResource("14_5lmqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8027325, -69.478676)
+visible = false
 
-[editable path="item_1"]
 [editable path="inimigo"]
 [editable path="lixeira"]

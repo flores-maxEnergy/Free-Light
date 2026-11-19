@@ -27,6 +27,9 @@ var life = 1
 
 #itens
 var item_1 : bool = false
+var item_2 : bool = false
+var item_3 : bool = false
+var item_4 : bool = false
 
 func _ready() -> void:
 	mira_label.visible = false
@@ -126,11 +129,24 @@ func _physics_process(delta: float) -> void:
 
 	# Atualizar a barra
 	barra_energia.value = energia_atual
-
+	
+@onready var item_2_mesh: RigidBody3D = $"../itens/item_2"
 func pegar_item_1():
 	item_1 = true
-	print("pergou a chave: " + str(item_1))
+	item_2_mesh.visible = true
+
+@onready var item_3_mesh: RigidBody3D = $"../itens/item_3"
+func pegar_item_2():
+	item_2 = true
+	item_3_mesh.visible = true
 	
+@onready var item_4_mesh: RigidBody3D = $"../itens/item_4"
+func pegar_item_3():
+	item_3 = true
+	item_4_mesh.visible = true
+
+func pegar_item_4():
+	item_4 = true
 	saida_liberada.emit()
 
 const GAME_OVER = preload("res://scenes/tela_derrota.tscn")
