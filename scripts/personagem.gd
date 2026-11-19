@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal saida_liberada()
+
 @export var velocidade := 5.0
 @export var sensibilidade := 0.001
 
@@ -128,6 +130,8 @@ func _physics_process(delta: float) -> void:
 func pegar_item_1():
 	item_1 = true
 	print("pergou a chave: " + str(item_1))
+	
+	saida_liberada.emit()
 
 const GAME_OVER = preload("res://scenes/tela_derrota.tscn")
 func tomar_dano():
