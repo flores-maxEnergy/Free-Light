@@ -378,10 +378,10 @@ tracks/7/path = NodePath("cabeca:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.06),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.058798, 1.06),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.9015491, 1.5286278, 0), Vector3(-1.9015491, 0.6574272, 0)]
+"values": [Vector3(-1.9015491, 1.5286278, 0), Vector3(-1.9015491, 0.5140427, 0), Vector3(-1.9015491, 0.6574272, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -470,8 +470,8 @@ bones/0/name = "cabeca_2"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0.36772805, 1.0000001, 0.06278195)
 bones/0/enabled = true
-bones/0/position = Vector3(0.36772805, 1, 0.06278195)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/position = Vector3(-1.0821211, 1, 0.06278195)
+bones/0/rotation = Quaternion(0, 0, 0.115953304, 0.99325466)
 bones/0/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/1/name = "corpo_2"
 bones/1/parent = -1
@@ -484,14 +484,14 @@ bones/2/name = "dir"
 bones/2/parent = -1
 bones/2/rest = Transform3D(1.0000001, 0, -1.5815075e-06, -1.5815075e-06, 0, -1.0000001, 0, 1.0000001, 0, 7.8079186e-17, 0.92805946, -0.22104608)
 bones/2/enabled = true
-bones/2/position = Vector3(2.543226e-16, 0.9280594, -0.22104606)
+bones/2/position = Vector3(-3.3234837e-08, 0.90704477, -0.5749047)
 bones/2/rotation = Quaternion(0.70710677, -5.591472e-07, -5.591472e-07, 0.70710677)
 bones/2/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/3/name = "esq"
 bones/3/parent = -1
 bones/3/rest = Transform3D(1.0000001, 0, -1.6053574e-06, 1.6053574e-06, 0, 1.0000001, 0, -1.0000001, 0, 1.1378003e-16, 0.92805946, 0.37035945)
 bones/3/enabled = true
-bones/3/position = Vector3(1.4532375e-16, 0.92805946, 0.37035942)
+bones/3/position = Vector3(2.3684347e-08, 0.9133061, 0.7030448)
 bones/3/rotation = Quaternion(-0.70710677, -5.6757943e-07, 5.6757943e-07, 0.70710677)
 bones/3/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/4/name = "neutral_bone"
