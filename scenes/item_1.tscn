@@ -1,20 +1,130 @@
-[gd_scene load_steps=5 format=3 uid="uid://7j3jhsfmuptw"]
+[gd_scene load_steps=8 format=3 uid="uid://7j3jhsfmuptw"]
 
 [ext_resource type="Script" uid="uid://b1pvp1fe575k" path="res://scripts/item_1.gd" id="1_pag02"]
 [ext_resource type="Material" uid="uid://d18r63i4bkvn2" path="res://assets/texturas/item_1_texture.tres" id="1_umx0m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_umx0m"]
-size = Vector3(0.14355469, 0.2997055, 0.7005539)
+size = Vector3(0.14355469, 0.2997055, 1.2993999)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pag02"]
-size = Vector3(0.3930664, 0.51116943, 0.7038574)
+size = Vector3(0.47436523, 0.51116943, 0.7038574)
+
+[sub_resource type="Animation" id="Animation_gw56t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("area/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.036376953, 0.382523, -0.196455)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5806729, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("area/CollisionShape3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pag02"]
+resource_name = "flutuar"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("area/CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.036376953, 0.382523, -0.0046254396), Vector3(-0.036376953, 0.6469365, -0.004625559), Vector3(-0.036376953, 0.382523, -0.0046254396)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5806729, 0), Vector3(0, 0.8450864, 0), Vector3(0, 0.5806729, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("area/CollisionShape3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 3.1415927, 0), Vector3(-1.5707964, 6.2831855, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 3.1415927, 0), Vector3(-1.5707964, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_23lxt"]
+_data = {
+&"RESET": SubResource("Animation_gw56t"),
+&"flutuar": SubResource("Animation_pag02")
+}
 
 [node name="item_1" type="RigidBody3D"]
 collision_layer = 0
 script = ExtResource("1_pag02")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(2.9999998, 0, 0, 0, -1.3113416e-07, 3, 0, -2.9999998, -1.3113416e-07, 0, 0.5806729, 0)
 size = Vector3(0.1, 0.1, 0.1)
 material = ExtResource("1_umx0m")
 
@@ -39,7 +149,7 @@ size = Vector3(0.036132813, 0.1, 0.033447266)
 material = ExtResource("1_umx0m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003289029, -0.20692825)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.044654846, -0.0047296155)
 shape = SubResource("BoxShape3D_umx0m")
 
 [node name="area" type="Area3D" parent="."]
@@ -47,7 +157,13 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036376953, 0.108551025, -0.196455)
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, 1, 0, -0.99999994, -4.371139e-08, -0.036376953, 0.382523, -0.196455)
 shape = SubResource("BoxShape3D_pag02")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_23lxt")
+}
+autoplay = "flutuar"
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
