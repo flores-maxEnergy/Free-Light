@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=30 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="Script" uid="uid://dn5wh3qwn3qy8" path="res://scripts/ferrovelho.gd" id="1_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
 [ext_resource type="PackedScene" uid="uid://hbsmy5au8vt1" path="res://scenes/personagem.tscn" id="3_a5gss"]
 [ext_resource type="PackedScene" uid="uid://5160mqrih35d" path="res://scenes/segurança.tscn" id="4_7fe06"]
+[ext_resource type="Texture2D" uid="uid://ck3wnbw082dbk" path="res://assets/sprite/instrucao.png" id="4_tx1r8"]
+[ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="5_k7oui"]
 [ext_resource type="PackedScene" uid="uid://7j3jhsfmuptw" path="res://scenes/item_1.tscn" id="5_xsbc4"]
 [ext_resource type="PackedScene" uid="uid://bspx3nik3jo64" path="res://scenes/labirinto.tscn" id="6_osnry"]
 [ext_resource type="PackedScene" uid="uid://dym8fouev5el3" path="res://scenes/inimigo.tscn" id="6_pmwl0"]
@@ -52,6 +54,15 @@ size = Vector3(4.3884277, 2.9423828, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ouy4f"]
 size = Vector3(2.4997559, 1, 10.650391)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7oui"]
+size = Vector3(4.1088867, 4.948242, 20.132935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx1r8"]
+size = Vector3(9.409771, 7.4316406, 7.0258484)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnali"]
+size = Vector3(7.038086, 3.6677246, 2.8727417)
+
 [node name="ferrovelho" type="Node3D"]
 script = ExtResource("1_j6bkg")
 
@@ -74,6 +85,29 @@ spot_range = 15.0
 spot_angle = 50.0
 
 [node name="BarraLuz" parent="." instance=ExtResource("3_7fe06")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Instrucaosprite" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(435, 425)
+texture = ExtResource("4_tx1r8")
+
+[node name="Instrucao" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 398.0
+offset_right = 593.0
+offset_bottom = 455.0
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_k7oui")
 
 [node name="agachar" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8265264, 4.3198647, -60.06311)
@@ -103,17 +137,6 @@ use_collision = true
 size = Vector3(4.70874, 4.5998535, 1)
 
 [node name="puzzle_area2" parent="NavigationRegion3D" instance=ExtResource("7_bnx7d")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Instrucao" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 433.0
-offset_top = 243.0
-offset_right = 714.0
-offset_bottom = 275.0
-theme_override_font_sizes/font_size = 23
-text = "Pressione X para acender"
 
 [node name="quadro" parent="." instance=ExtResource("8_6h02v")]
 transform = Transform3D(-0.059961796, 0, -1.0327262, 0, 2.52, 0, 2.3986497, 0, -0.025816461, -23.64624, 0.13652468, -26.858398)
@@ -163,7 +186,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-transform = Transform3D(-0.041374926, 0.015186974, 0.9990266, 0.07322714, 0.9972398, -0.012127086, -0.9964534, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137492, 0.015186973, 0.99902654, 0.07322713, 0.99723977, -0.012127085, -0.9964533, 0.07265432, -0.042372957, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -175,7 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-transform = Transform3D(-0.04137492, 0.015186973, 0.99902654, 0.07322713, 0.99723977, -0.012127085, -0.9964533, 0.07265432, -0.042372957, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374914, 0.015186972, 0.9990265, 0.07322712, 0.9972397, -0.012127084, -0.99645317, 0.07265432, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -187,7 +210,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-transform = Transform3D(-0.04137492, 0.015186973, 0.99902654, 0.07322713, 0.99723977, -0.012127085, -0.9964533, 0.07265432, -0.042372957, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374914, 0.015186972, 0.9990265, 0.07322712, 0.9972397, -0.012127084, -0.99645317, 0.07265432, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -199,7 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -42.125065, 3.4062696, -20.818367)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-transform = Transform3D(-0.04137492, 0.015186973, 0.99902654, 0.07322713, 0.99723977, -0.012127085, -0.9964533, 0.07265432, -0.042372957, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374914, 0.015186972, 0.9990265, 0.07322712, 0.9972397, -0.012127084, -0.99645317, 0.07265432, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -216,7 +239,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.95276, 0, -27.733992)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3857422)
 shape = SubResource("BoxShape3D_ouy4f")
 
+[node name="areas_dialogo" type="Node3D" parent="."]
+
+[node name="acender_lanterna" type="Area3D" parent="areas_dialogo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66.33888)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/acender_lanterna"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.278968, 4.8718944, -5.782501)
+shape = SubResource("BoxShape3D_k7oui")
+
+[node name="aprender_agachar" type="Area3D" parent="areas_dialogo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66.33888)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/aprender_agachar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1368928, 2.8977733, 0.32688904)
+shape = SubResource("BoxShape3D_tx1r8")
+
+[node name="ja_aprendeu_agachar" type="Area3D" parent="areas_dialogo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -66.33888)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/ja_aprendeu_agachar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0903134, 4.2284617, 12.574581)
+shape = SubResource("BoxShape3D_hnali")
+
 [connection signal="body_entered" from="area_win" to="." method="_on_area_win_body_entered"]
+[connection signal="body_entered" from="areas_dialogo/acender_lanterna" to="." method="_on_acender_lanterna_body_entered"]
+[connection signal="body_entered" from="areas_dialogo/aprender_agachar" to="." method="_on_aprender_agachar_body_entered"]
+[connection signal="body_exited" from="areas_dialogo/ja_aprendeu_agachar" to="." method="_on_ja_aprendeu_agachar_body_exited"]
 
 [editable path="lixeira"]
 [editable path="inimigos/inimigo"]
