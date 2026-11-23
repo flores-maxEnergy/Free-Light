@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=33 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="Script" uid="uid://dn5wh3qwn3qy8" path="res://scripts/ferrovelho.gd" id="1_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://33ifbfc4fu2l" path="res://scenes/item_2.tscn" id="12_bm3i4"]
 [ext_resource type="PackedScene" uid="uid://c65j2jivyrirv" path="res://scenes/item_3.tscn" id="13_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://dcafgmuwalcwd" path="res://scenes/item_4.tscn" id="14_5lmqh"]
+[ext_resource type="PackedScene" uid="uid://bqf66rtl85m6v" path="res://scenes/kill_zone.tscn" id="20_k7oui"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
 sky_top_color = Color(0.3411771, 0.42995906, 0.6846487, 1)
@@ -53,6 +54,81 @@ albedo_texture = ExtResource("7_5lmqh")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx1r8"]
 albedo_texture = ExtResource("7_5lmqh")
+
+[sub_resource type="Animation" id="Animation_ouy4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plataforma1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(22.494, -2.5748255, -25.19)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plataforma2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(22.493843, -1.8846914, -29.361374)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plataforma4:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(18.886, -0.941, -33.396)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("plataforma5:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(18.88601, 0.2321558, -29.361374)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("plataforma6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(18.912334, 0.8746884, -25.190475)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("suporte/plataforma_move:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15.876865, 1.5856614, -26.448713)]
+}
 
 [sub_resource type="Animation" id="Animation_k7oui"]
 resource_name = "animation"
@@ -131,81 +207,6 @@ tracks/5/keys = {
 "values": [Vector3(15.876865, 1.5856614, -26.448713), Vector3(15.876865, 1.5856614, -32.701336)]
 }
 
-[sub_resource type="Animation" id="Animation_ouy4f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("plataforma1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(22.494, -2.5748255, -25.19)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("plataforma2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(22.493843, -1.8846914, -29.361374)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("plataforma4:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(18.886, -0.941, -33.396)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("plataforma5:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(18.88601, 0.2321558, -29.361374)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("plataforma6:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(18.912334, 0.8746884, -25.190475)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("suporte/plataforma_move:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(15.876865, 1.5856614, -26.448713)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hnali"]
 _data = {
 &"RESET": SubResource("Animation_ouy4f"),
@@ -214,6 +215,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6bkg"]
 size = Vector3(4.3884277, 2.9423828, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ouy4f"]
+size = Vector3(2.4997559, 1, 10.650391)
 
 [node name="ferrovelho" type="Node3D"]
 script = ExtResource("1_j6bkg")
@@ -436,7 +440,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-transform = Transform3D(-0.041374937, 0.015186976, 0.9990267, 0.07322715, 0.99723995, -0.012127087, -0.99645364, 0.07265434, -0.042372964, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137493, 0.015186975, 0.99902666, 0.073227145, 0.9972399, -0.0121270865, -0.9964535, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -448,7 +452,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-transform = Transform3D(-0.04137493, 0.015186975, 0.99902666, 0.073227145, 0.9972399, -0.0121270865, -0.9964535, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374926, 0.015186974, 0.9990266, 0.07322714, 0.9972398, -0.012127086, -0.9964534, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -460,7 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-transform = Transform3D(-0.04137493, 0.015186975, 0.99902666, 0.073227145, 0.9972399, -0.0121270865, -0.9964535, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374926, 0.015186974, 0.9990266, 0.07322714, 0.9972398, -0.012127086, -0.9964534, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -472,13 +476,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -42.125065, 3.4062696, -20.818367)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-transform = Transform3D(-0.04137493, 0.015186975, 0.99902666, 0.073227145, 0.9972399, -0.0121270865, -0.9964535, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374926, 0.015186974, 0.9990266, 0.07322714, 0.9972398, -0.012127086, -0.9964534, 0.07265433, -0.04237296, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
 
 [node name="Marker3D3" parent="inimigos/inimigo4/rotas" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
+
+[node name="kill_zones" type="Node3D" parent="."]
+
+[node name="kill_zone" parent="kill_zones" instance=ExtResource("20_k7oui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.95276, 0, -27.733992)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="kill_zones/kill_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3857422)
+shape = SubResource("BoxShape3D_ouy4f")
 
 [connection signal="body_entered" from="area_win" to="." method="_on_area_win_body_entered"]
 
