@@ -33,8 +33,19 @@ func _on_aprender_agachar_body_entered(body: Node3D) -> void:
 		sprite_dialogo.play("dialogo_intro")
 		text_animation.play("intro")
 
+var ja_aprendeu = false
 func _on_ja_aprendeu_agachar_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):
-		instrucao.text= "Muito bem!"
-		sprite_dialogo.play_backwards("dialogo_intro")
-		text_animation.play("intro", -1.0, -1.0, true)
+		if not ja_aprendeu:
+			ja_aprendeu = true
+			instrucao.text= "Muito bem!"
+			sprite_dialogo.play_backwards("dialogo_intro")
+			text_animation.play("saida", -1.0, -1.0, true)
+
+func _on_aprender_esq_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("jogador")):
+		body.dentro_da_area_do_cofre = true
+		instrucao.text= "F = interagir/retornar"
+		dialogo.visible = true
+		sprite_dialogo.play("dialogo_intro")
+		text_animation.play("intro")

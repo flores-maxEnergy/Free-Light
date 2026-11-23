@@ -580,6 +580,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5736008, 0.1614288, 0.10543
 shape = SubResource("BoxShape3D_ysb68")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[node name="camera_foco" type="Marker3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.3644989, 0, 0)
+
 [connection signal="input_event" from="seta1Cima" to="." method="_on_seta_1_cima_input_event"]
 [connection signal="input_event" from="seta1Baixo" to="." method="_on_seta_1_baixo_input_event"]
 [connection signal="input_event" from="seta2Cima" to="." method="_on_seta_2_cima_input_event"]

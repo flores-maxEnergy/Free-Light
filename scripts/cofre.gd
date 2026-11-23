@@ -1,5 +1,12 @@
 extends Node3D
 
+@onready var text_animation: AnimationPlayer = $"../../CanvasLayer/Control/text_animation"
+@onready var sprite_dialogo: AnimatedSprite2D = $"../../CanvasLayer/Control/sprite_dialogo"
+@onready var instrucao: RichTextLabel = $"../../CanvasLayer/Control/Instrucao"
+
+@onready var camera_foco: Marker3D = $camera_foco
+
+
 @onready var porta_cofre: AnimationPlayer = $porta_cofre
 var abriu_o_cofre = false
 
@@ -23,6 +30,12 @@ func _physics_process(delta: float) -> void:
 	if contador_btn_1 == 5 and contador_btn_2 == 1 and contador_btn_3 == 2 and not abriu_o_cofre:
 		abriu_o_cofre = true
 		porta_cofre.play("abrir_cofre")
+		
+		instrucao.text = "Boa!"
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		text_animation.play("saida", -1.0, -1.0, true)
+		sprite_dialogo.play_backwards("dialogo_intro")
+		
 
 #=====================================================<------SETAS DO PRIMEIRO BOTÃO
 #===--------------------seta1Cima------------------===
@@ -203,3 +216,6 @@ func rodar_para_CIMA_seta3():
 			botao_3.play("0 to 1", -1.0, -1.0, true)
 			contador_btn_3 -= 1
 #=====================================================<------FIM DAS SETAS DO TERCEIRO BOTÃO
+
+func posicionar(player: CharacterBody3D) -> void:
+	player.entrando_em_foco(camera_foco.global_transform, self)

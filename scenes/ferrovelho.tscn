@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=81 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="Script" uid="uid://dn5wh3qwn3qy8" path="res://scripts/ferrovelho.gd" id="1_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
@@ -8,10 +8,13 @@
 [ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="5_k7oui"]
 [ext_resource type="PackedScene" uid="uid://7j3jhsfmuptw" path="res://scenes/item_1.tscn" id="5_xsbc4"]
 [ext_resource type="PackedScene" uid="uid://bspx3nik3jo64" path="res://scenes/labirinto.tscn" id="6_osnry"]
+[ext_resource type="AudioStream" uid="uid://duh8s217yxwrs" path="res://assets/audio/sininho.wav" id="6_ouy4f"]
 [ext_resource type="PackedScene" uid="uid://dym8fouev5el3" path="res://scenes/inimigo.tscn" id="6_pmwl0"]
 [ext_resource type="PackedScene" uid="uid://cuk5mcfjgqe82" path="res://scenes/cofre.tscn" id="6_wafhy"]
 [ext_resource type="PackedScene" uid="uid://cuqheqyd0eh53" path="res://scenes/puzzle_area_2.tscn" id="7_bnx7d"]
+[ext_resource type="AudioStream" uid="uid://1u4c4l0hru5g" path="res://assets/audio/voz_robo.wav" id="7_hnali"]
 [ext_resource type="PackedScene" uid="uid://d2y063fxejvcw" path="res://assets/modelagens/quadro.dae" id="8_6h02v"]
+[ext_resource type="AudioStream" uid="uid://cv2cit5os6pny" path="res://assets/audio/ok_som.mp3" id="8_hnali"]
 [ext_resource type="PackedScene" uid="uid://dh3gke5m153hy" path="res://assets/modelagens/83-nescafe_mug/nescafe_mug.fbx" id="10_osnry"]
 [ext_resource type="PackedScene" uid="uid://cvxktjmjsmj15" path="res://assets/modelagens/lixeira.tscn" id="11_osnry"]
 [ext_resource type="PackedScene" uid="uid://b3juwe13kp7sl" path="res://assets/modelagens/Coca_Cola.blend" id="11_x587a"]
@@ -352,6 +355,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_slfri"]
 resource_name = "intro"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -363,6 +367,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sino:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("voz_robo:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_4w5ql"]
@@ -379,11 +407,76 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sino:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("voz_robo:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ok:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ouy4f"]
+resource_name = "saida"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instrucao:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ok:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xiqiu"]
 _data = {
 &"RESET": SubResource("Animation_4w5ql"),
-&"intro": SubResource("Animation_slfri")
+&"intro": SubResource("Animation_slfri"),
+&"saida": SubResource("Animation_ouy4f")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_osnry"]
@@ -403,7 +496,7 @@ size = Vector3(2.4997559, 1, 10.650391)
 size = Vector3(4.1088867, 4.948242, 20.132935)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tx1r8"]
-size = Vector3(9.409771, 7.4316406, 7.0258484)
+size = Vector3(2.767774, 4.089966, 3.9210167)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hnali"]
 size = Vector3(7.038086, 3.6677246, 2.8727417)
@@ -419,8 +512,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pmwl0")
 
-[node name="personagem" parent="." instance=ExtResource("3_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.586954, 3.11616, -72.02278)
+[node name="personagem" parent="." node_paths=PackedStringArray("cofre_mod") instance=ExtResource("3_a5gss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.707113, 3.11616, -26.689356)
+cofre_mod = NodePath("../NavigationRegion3D/cofre")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="personagem"]
 transform = Transform3D(0.0321958, 0, -0.99948156, 0, 1, 0, 0.99948156, 0, 0.0321958, 0.56078714, 0, 0)
@@ -465,6 +559,15 @@ text = "X para acender a lanterna"
 libraries = {
 &"": SubResource("AnimationLibrary_xiqiu")
 }
+
+[node name="sino" type="AudioStreamPlayer2D" parent="CanvasLayer/Control"]
+stream = ExtResource("6_ouy4f")
+
+[node name="voz_robo" type="AudioStreamPlayer2D" parent="CanvasLayer/Control"]
+stream = ExtResource("7_hnali")
+
+[node name="ok" type="AudioStreamPlayer2D" parent="CanvasLayer/Control"]
+stream = ExtResource("8_hnali")
 
 [node name="agachar" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8265264, 4.3198647, -60.06311)
@@ -543,7 +646,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-transform = Transform3D(-0.041374914, 0.015186972, 0.9990265, 0.07322712, 0.9972397, -0.012127084, -0.99645317, 0.07265432, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374907, 0.01518697, 0.99902636, 0.0732271, 0.9972396, -0.012127083, -0.9964529, 0.07265431, -0.04237295, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -555,7 +658,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-transform = Transform3D(-0.04137491, 0.015186971, 0.9990264, 0.07322711, 0.99723965, -0.012127084, -0.99645305, 0.072654314, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.0413749, 0.015186969, 0.9990263, 0.07322709, 0.99723953, -0.012127082, -0.9964528, 0.07265431, -0.042372946, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -567,7 +670,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-transform = Transform3D(-0.04137491, 0.015186971, 0.9990264, 0.07322711, 0.99723965, -0.012127084, -0.99645305, 0.072654314, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.0413749, 0.015186969, 0.9990263, 0.07322709, 0.99723953, -0.012127082, -0.9964528, 0.07265431, -0.042372946, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -576,10 +679,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 
 [node name="inimigo4" parent="inimigos" instance=ExtResource("6_pmwl0")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -39.440727, 3.4062696, -31.493782)
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -39.440727, 3.4062696, -31.493782)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-transform = Transform3D(-0.04137491, 0.015186971, 0.9990264, 0.07322711, 0.99723965, -0.012127084, -0.99645305, 0.072654314, -0.042372953, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.0413749, 0.015186969, 0.9990263, 0.07322709, 0.99723953, -0.012127082, -0.9964528, 0.07265431, -0.042372946, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -622,10 +725,20 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0903134, 4.2284617, 12.574581)
 shape = SubResource("BoxShape3D_hnali")
 
+[node name="aprender_esc" type="Area3D" parent="areas_dialogo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.736788, 0, -32.717773)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/aprender_esc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.069803, 0.5980296, 0.46073914)
+shape = SubResource("BoxShape3D_tx1r8")
+
 [connection signal="body_entered" from="area_win" to="." method="_on_area_win_body_entered"]
 [connection signal="body_entered" from="areas_dialogo/acender_lanterna" to="." method="_on_acender_lanterna_body_entered"]
 [connection signal="body_entered" from="areas_dialogo/aprender_agachar" to="." method="_on_aprender_agachar_body_entered"]
 [connection signal="body_exited" from="areas_dialogo/ja_aprendeu_agachar" to="." method="_on_ja_aprendeu_agachar_body_exited"]
+[connection signal="body_entered" from="areas_dialogo/aprender_esc" to="." method="_on_aprender_esq_body_entered"]
 
 [editable path="lixeira"]
 [editable path="inimigos/inimigo"]
