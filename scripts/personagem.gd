@@ -4,6 +4,8 @@ signal saida_liberada()
 
 @export var velocidade := 5.0
 @export var sensibilidade := 0.001
+@export var cofre_mod : Node3D
+var dentro_da_area_do_cofre := false
 
 # Energia da lanterna
 @export var energia_maxima := 100.0
@@ -11,7 +13,11 @@ signal saida_liberada()
 
 var energia_atual := 100.0
 
+#-------Câmera
 @onready var camera: Camera3D = $cabeca/Camera3D
+var focando := false
+var savando_local_transform: Transform3D
+var cam_tween: Tween
 
 @onready var barra_energia: ProgressBar = get_node("../BarraLuz/BarraEnergia")
 @onready var luz_peito: SpotLight3D = $SpotLight3D
@@ -76,6 +82,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			velocidade = 5.0
 			esta_agachado = false
 			animation.play("agachar", -1.0, -1.0, true)
+	
+	if focando:
+		if event.is_action_pressed("interagir"):
+			exit_focus()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
+	
+	if event.is_action_pressed("interagir") and dentro_da_area_do_cofre:
+		cofre_mod.posicionar(self)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
@@ -105,12 +122,13 @@ func _physics_process(delta: float) -> void:
 	var direcao := direita * input_dir.x - frente * input_dir.y
 	direcao = direcao.normalized()
 	
-	if direcao != Vector3.ZERO:
-		velocity.x = direcao.x * velocidade
-		velocity.z = direcao.z * velocidade
-	else:
-		velocity.x = move_toward(velocity.x, 0.0, velocidade)
-		velocity.z = move_toward(velocity.z, 0.0, velocidade)
+	if not focando:
+		if direcao != Vector3.ZERO:
+			velocity.x = direcao.x * velocidade
+			velocity.z = direcao.z * velocidade
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, velocidade)
+			velocity.z = move_toward(velocity.z, 0.0, velocidade)
 	
 	if batendo_no_teto.is_colliding():
 		nao_pode_levantar = true
@@ -153,3 +171,39 @@ const GAME_OVER = preload("res://scenes/tela_derrota.tscn")
 func tomar_dano():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().call_deferred("change_scene_to_packed", GAME_OVER)
+
+func entrando_em_foco(target: Transform3D, _target_node: Node = null) -> void:
+	if focando:
+		return
+	focando = true
+	savando_local_transform = camera.transform
+	
+	var current := camera.global_transform
+	camera.top_level = true
+	camera.global_transform = current
+	
+	_tween_camera(target)
+
+func exit_focus() -> void:
+	if not focando:
+		return
+	var target: Transform3D = camera.get_parent().global_transform * savando_local_transform
+	_tween_camera(target, _on_exit_finished)
+	
+
+func _on_exit_finished() -> void:
+	camera.top_level = false
+	camera.transform = savando_local_transform
+	focando = false
+
+func _tween_camera(target: Transform3D, on_done: Callable = Callable()) -> void:
+	if cam_tween:
+		cam_tween.kill()
+	var from: Transform3D = camera.global_transform
+	cam_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	cam_tween.tween_method(_set_cam_blend.bind(from, target), 0.0, 1.0, 0.6)
+	if on_done.is_valid():
+		cam_tween.tween_callback(on_done)
+
+func _set_cam_blend(t: float, from: Transform3D, to: Transform3D) -> void:
+	camera.global_transform = from.interpolate_with(to, t)
