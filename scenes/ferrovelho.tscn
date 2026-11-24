@@ -591,11 +591,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.427273, -0.14184535, -32.
 [node name="LABIRINTO" parent="NavigationRegion3D" instance=ExtResource("6_osnry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04396057, -0.0336051, 0.04279709)
 
-[node name="saida_final" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07286739, 0.38425446, 50.465508)
-use_collision = true
-size = Vector3(4.70874, 4.5998535, 1)
-
 [node name="puzzle_area2" parent="NavigationRegion3D" instance=ExtResource("7_bnx7d")]
 
 [node name="quadro" parent="." instance=ExtResource("8_6h02v")]

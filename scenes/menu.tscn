@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://e41lhfg2wccm"]
+
+[ext_resource type="Texture2D" uid="uid://c1sxfd0v3rpfr" path="res://assets/FREE.png" id="1_yqeox"]
+
+[node name="Menu principal" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 803.0
+offset_bottom = 503.0
+color = Color(0, 0, 0, 1)
+
+[node name="Iniciar Jogo" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 225.0
+offset_right = 257.0
+offset_bottom = 256.0
+text = "iniciar o jogo"
+
+[node name="Controles" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 268.0
+offset_right = 257.0
+offset_bottom = 299.0
+text = "controles"
+
+[node name="Sair do jogo" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 311.0
+offset_right = 264.0
+offset_bottom = 342.0
+text = "sair do jogo"
+
+[node name="Free" type="Sprite2D" parent="Control"]
+position = Vector2(305.88388, 108.74999)
+scale = Vector2(0.39016736, 0.39016736)
+texture = ExtResource("1_yqeox")

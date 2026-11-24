@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0pj7iaq3h7m1"
+path="res://.godot/imported/som de derrota.mp3-f5bf8ec8de53af144efc290bd08ee1b2.mp3str"
+
+[deps]
+
+source_file="res://sons/som de derrota.mp3"
+dest_files=["res://.godot/imported/som de derrota.mp3-f5bf8ec8de53af144efc290bd08ee1b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
