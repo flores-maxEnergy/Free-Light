@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cuk5mcfjgqe82"]
+[gd_scene load_steps=37 format=3 uid="uid://cuk5mcfjgqe82"]
 
 [ext_resource type="Script" uid="uid://c5ty6227e6c5y" path="res://scripts/cofre.gd" id="1_aie4e"]
 [ext_resource type="PackedScene" uid="uid://dicqj4erolvmm" path="res://assets/modelagens/botoes_cofre3D.glb" id="2_71iw2"]
@@ -446,10 +446,15 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysb68"]
 size = Vector3(0.04272461, 0.037597656, 0.056640625)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_aie4e"]
+
 [node name="cofre" type="Node3D"]
 script = ExtResource("1_aie4e")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+collision_layer = 16
+collision_mask = 4
 material = SubResource("StandardMaterial3D_aie4e")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
@@ -582,6 +587,12 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="camera_foco" type="Marker3D" parent="."]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.3644989, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_aie4e")
 
 [connection signal="input_event" from="seta1Cima" to="." method="_on_seta_1_cima_input_event"]
 [connection signal="input_event" from="seta1Baixo" to="." method="_on_seta_1_baixo_input_event"]

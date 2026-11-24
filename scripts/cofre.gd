@@ -5,7 +5,7 @@ extends Node3D
 @onready var instrucao: RichTextLabel = $"../../CanvasLayer/Control/Instrucao"
 
 @onready var camera_foco: Marker3D = $camera_foco
-
+@onready var collision: CharacterBody3D = $CharacterBody3D
 
 @onready var porta_cofre: AnimationPlayer = $porta_cofre
 var abriu_o_cofre = false
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		text_animation.play("saida", -1.0, -1.0, true)
 		sprite_dialogo.play_backwards("dialogo_intro")
-		
+		collision.queue_free()
 
 #=====================================================<------SETAS DO PRIMEIRO BOTÃO
 #===--------------------seta1Cima------------------===
@@ -218,4 +218,6 @@ func rodar_para_CIMA_seta3():
 #=====================================================<------FIM DAS SETAS DO TERCEIRO BOTÃO
 
 func posicionar(player: CharacterBody3D) -> void:
+	if abriu_o_cofre:
+		return
 	player.entrando_em_foco(camera_foco.global_transform, self)

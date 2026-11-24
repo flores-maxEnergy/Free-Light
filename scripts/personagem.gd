@@ -86,10 +86,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if focando:
 		if event.is_action_pressed("interagir"):
 			exit_focus()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
 	
 	if event.is_action_pressed("interagir") and dentro_da_area_do_cofre:
 		cofre_mod.posicionar(self)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
 
 func _physics_process(delta: float) -> void:
@@ -120,12 +122,13 @@ func _physics_process(delta: float) -> void:
 	var direcao := direita * input_dir.x - frente * input_dir.y
 	direcao = direcao.normalized()
 	
-	if direcao != Vector3.ZERO:
-		velocity.x = direcao.x * velocidade
-		velocity.z = direcao.z * velocidade
-	else:
-		velocity.x = move_toward(velocity.x, 0.0, velocidade)
-		velocity.z = move_toward(velocity.z, 0.0, velocidade)
+	if not focando:
+		if direcao != Vector3.ZERO:
+			velocity.x = direcao.x * velocidade
+			velocity.z = direcao.z * velocidade
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, velocidade)
+			velocity.z = move_toward(velocity.z, 0.0, velocidade)
 	
 	if batendo_no_teto.is_colliding():
 		nao_pode_levantar = true

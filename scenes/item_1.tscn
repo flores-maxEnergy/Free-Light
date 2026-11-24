@@ -120,11 +120,13 @@ _data = {
 }
 
 [node name="item_1" type="RigidBody3D"]
-collision_layer = 0
+collision_layer = 4
+collision_mask = 18
 script = ExtResource("1_pag02")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(2.9999998, 0, 0, 0, -1.3113416e-07, 3, 0, -2.9999998, -1.3113416e-07, 0, 0.5806729, 0)
+layers = 4
 size = Vector3(0.1, 0.1, 0.1)
 material = ExtResource("1_umx0m")
 
