@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmmokr53eknan"
+path="res://.godot/imported/som do inimigo.mp3-483aa09ba22cf1f8239beb199da9eb49.mp3str"
+
+[deps]
+
+source_file="res://sons/som do inimigo.mp3"
+dest_files=["res://.godot/imported/som do inimigo.mp3-483aa09ba22cf1f8239beb199da9eb49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

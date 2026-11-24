@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpkprc0rly57x"
+path="res://.godot/imported/robo inimigo.mp3-e2a6e1fc612920473f88713bce0734bc.mp3str"
+
+[deps]
+
+source_file="res://sons/robo inimigo.mp3"
+dest_files=["res://.godot/imported/robo inimigo.mp3-e2a6e1fc612920473f88713bce0734bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
