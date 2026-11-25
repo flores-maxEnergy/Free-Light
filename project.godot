@@ -23,6 +23,7 @@ window/size/viewport_height=500
 [global_group]
 
 jogador=""
+caixas=""
 
 [input]
 
