@@ -549,7 +549,7 @@ shadow_enabled = true
 environment = SubResource("Environment_pmwl0")
 
 [node name="personagem" parent="." node_paths=PackedStringArray("cofre_mod", "sistema") instance=ExtResource("3_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.357496, 3.11616, 32.65445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.419571, 3.11616, -75.3609)
 cofre_mod = NodePath("../NavigationRegion3D/cofre")
 sistema = NodePath("../NavigationRegion3D/area_5")
 
@@ -681,7 +681,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-transform = Transform3D(-0.04137485, 0.01518696, 0.9990257, 0.073227, 0.99723893, -0.012127074, -0.9964516, 0.07265426, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137482, 0.015186954, 0.99902534, 0.07322695, 0.9972386, -0.012127071, -0.9964509, 0.07265424, -0.042372905, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -693,7 +693,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-transform = Transform3D(-0.041374847, 0.015186959, 0.99902564, 0.073226996, 0.9972389, -0.012127074, -0.9964515, 0.072654255, -0.04237292, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374817, 0.015186953, 0.9990253, 0.07322694, 0.9972385, -0.01212707, -0.9964508, 0.07265423, -0.042372905, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -705,7 +705,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-transform = Transform3D(-0.041374847, 0.015186959, 0.99902564, 0.073226996, 0.9972389, -0.012127074, -0.9964515, 0.072654255, -0.04237292, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374817, 0.015186953, 0.9990253, 0.07322694, 0.9972385, -0.01212707, -0.9964508, 0.07265423, -0.042372905, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -717,7 +717,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -39.440727, 3.4062696, -31.493782)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-transform = Transform3D(-0.04137484, 0.015186958, 0.9990256, 0.07322699, 0.9972388, -0.0121270735, -0.9964514, 0.072654255, -0.042372916, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137481, 0.015186952, 0.9990252, 0.073226936, 0.99723846, -0.012127069, -0.99645066, 0.072654225, -0.0423729, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)

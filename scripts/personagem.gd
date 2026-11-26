@@ -256,6 +256,19 @@ func interagir_txt(exibir : bool):
 	else:
 		interagir.visible = false
 
+func sistema_txt(txt : int):
+	if txt == 1:
+		interagir.text = "Sua vez"
+		interagir.visible = true
+	elif txt == 2:
+		interagir.text = "Correto"
+		interagir.visible = true
+	elif txt == 3:
+		interagir.text = "Negado"
+		interagir.visible = true
+	else:
+		interagir.visible = false
+
 @onready var skeleton_mesh: Skeleton3D = $Armature/Skeleton3D
 func tocar_na_mesh(invisivel : bool):
 	if invisivel:
