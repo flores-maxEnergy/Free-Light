@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dym8fouev5el3"]
+[gd_scene load_steps=16 format=4 uid="uid://dym8fouev5el3"]
 
 [ext_resource type="Script" uid="uid://d4nosg0kkebfj" path="res://scripts/inimigo.gd" id="1_pt50e"]
 [ext_resource type="Texture2D" uid="uid://b6j6v8kc0t3ik" path="res://assets/modelagens/V1-G1L_detalhes.png" id="2_4er16"]
 [ext_resource type="Texture2D" uid="uid://cs88uy5b5lsqu" path="res://assets/modelagens/V1-G1L_RODA.png" id="3_ui621"]
+[ext_resource type="AudioStream" uid="uid://bmmokr53eknan" path="res://sons/som do inimigo.mp3" id="4_4er16"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4er16"]
 height = 1.4408569
@@ -276,7 +277,7 @@ shape = SubResource("CylinderShape3D_4er16")
 collision_mask = 7
 
 [node name="brilho" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.041375007, 0.015186989, 0.9990276, 0.07322729, 0.99724084, -0.012127098, -0.99645543, 0.072654404, -0.042373, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041375004, 0.015186988, 0.99902755, 0.07322728, 0.9972408, -0.012127097, -0.9964553, 0.0726544, -0.042373, -0.006739497, 1.6791643, -0.022283733)
 mesh = SubResource("CylinderMesh_21tsg")
 
 [node name="rotas" type="Node3D" parent="."]
@@ -468,6 +469,11 @@ skin = SubResource("Skin_4er16")
 libraries = {
 &"": SubResource("AnimationLibrary_6t4my")
 }
+
+[node name="sominimigo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4er16")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="corpo" to="." method="_on_corpo_body_entered"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

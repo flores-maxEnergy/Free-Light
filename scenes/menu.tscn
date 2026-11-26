@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://e41lhfg2wccm"]
+[gd_scene load_steps=3 format=3 uid="uid://e41lhfg2wccm"]
 
 [ext_resource type="Texture2D" uid="uid://c1sxfd0v3rpfr" path="res://assets/FREE.png" id="1_yqeox"]
+[ext_resource type="AudioStream" uid="uid://el7u5nm01trl" path="res://sons/fundo menu.mp3" id="2_vjb58"]
 
 [node name="Menu principal" type="Node2D"]
 
@@ -44,3 +45,9 @@ text = "sair do jogo"
 position = Vector2(305.88388, 108.74999)
 scale = Vector2(0.39016736, 0.39016736)
 texture = ExtResource("1_yqeox")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vjb58")
+volume_db = -10.272
+autoplay = true
+parameters/looping = true
