@@ -15,10 +15,16 @@ var senha : Array[int] = [3, 1, 2]
 var tentativa_do_jogador : Array[int] = [-1, -1, -1]
 
 @onready var animation: AnimationPlayer = $animation
+@onready var agua_csg: CSGBox3D = $CSGBox3D/agua_csg
+var velocidade := Vector3(0.0, 0.05, 0.0)
 
 var personagem : CharacterBody3D
 func _ready() -> void:
 	personagem = get_tree().get_first_node_in_group("jogador")
+	agua_csg.material = agua_csg.material.duplicate()
+
+func _process(delta: float) -> void:
+	agua_csg.material.uv1_offset += velocidade * delta
 
 func _on_area_blue_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
