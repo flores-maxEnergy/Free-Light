@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=97 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="Script" uid="uid://dn5wh3qwn3qy8" path="res://scripts/ferrovelho.gd" id="1_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b3juwe13kp7sl" path="res://assets/modelagens/Coca_Cola.blend" id="11_x587a"]
 [ext_resource type="PackedScene" uid="uid://33ifbfc4fu2l" path="res://scenes/item_2.tscn" id="12_bm3i4"]
 [ext_resource type="PackedScene" uid="uid://c65j2jivyrirv" path="res://scenes/item_3.tscn" id="13_j6bkg"]
+[ext_resource type="PackedScene" uid="uid://b44sbgwu1ipq2" path="res://scenes/area_5.tscn" id="13_qi6ct"]
 [ext_resource type="PackedScene" uid="uid://dcafgmuwalcwd" path="res://scenes/item_4.tscn" id="14_5lmqh"]
 [ext_resource type="PackedScene" uid="uid://bqf66rtl85m6v" path="res://scenes/kill_zone.tscn" id="20_k7oui"]
 [ext_resource type="Script" uid="uid://bfhd4hocksaf7" path="res://scripts/botao_pressao.gd" id="23_u5vjk"]
@@ -504,6 +505,9 @@ size = Vector3(2.767774, 4.089966, 3.9210167)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hnali"]
 size = Vector3(7.038086, 3.6677246, 2.8727417)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_saaml"]
+size = Vector3(2.4881592, 1.9865723, 3.0645142)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnali"]
 albedo_color = Color(0.08627451, 1, 1, 1)
 
@@ -544,9 +548,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pmwl0")
 
-[node name="personagem" parent="." node_paths=PackedStringArray("cofre_mod") instance=ExtResource("3_a5gss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.903542, 3.11616, -76.17999)
+[node name="personagem" parent="." node_paths=PackedStringArray("cofre_mod", "sistema") instance=ExtResource("3_a5gss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.357496, 3.11616, 32.65445)
 cofre_mod = NodePath("../NavigationRegion3D/cofre")
+sistema = NodePath("../NavigationRegion3D/area_5")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="personagem"]
 transform = Transform3D(0.0321958, 0, -0.99948156, 0, 1, 0, 0.99948156, 0, 0.0321958, 0.56078714, 0, 0)
@@ -629,27 +634,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04396057, -0.0336051, 0.04
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0556641, 50.62206)
 size = Vector3(4.404297, 4.734619, 1)
 
-[node name="area_5" type="Node3D" parent="NavigationRegion3D"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -0.8926003, 26.390205)
-size = Vector3(16.83191, 1, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.42458, -0.8926003, 28.330833)
-size = Vector3(5.2953415, 1, 3.0459595)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
-transform = Transform3D(1, 0, 0, 0, 0.99196523, -0.1265106, 0, 0.1265106, 0.99196523, 23.462, -1.351, 33.419)
-size = Vector3(3.370449, 1, 7.316437)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -1.1863015, 23.937122)
-size = Vector3(16.83191, 0.41259766, 4.425171)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -0.8926003, 19.454134)
-size = Vector3(16.83191, 1, 7.7686768)
+[node name="area_5" parent="NavigationRegion3D" instance=ExtResource("13_qi6ct")]
 
 [node name="quadro" parent="." instance=ExtResource("8_6h02v")]
 transform = Transform3D(-0.059961796, 0, -1.0327262, 0, 2.52, 0, 2.3986497, 0, -0.025816461, -23.64624, 0.13652468, -26.858398)
@@ -696,7 +681,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-transform = Transform3D(-0.041374862, 0.015186962, 0.9990258, 0.073227026, 0.99723905, -0.012127076, -0.99645185, 0.07265427, -0.042372927, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137485, 0.01518696, 0.9990257, 0.073227, 0.99723893, -0.012127074, -0.9964516, 0.07265426, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -708,7 +693,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-transform = Transform3D(-0.041374855, 0.015186961, 0.99902576, 0.07322702, 0.997239, -0.012127075, -0.99645174, 0.07265427, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374847, 0.015186959, 0.99902564, 0.073226996, 0.9972389, -0.012127074, -0.9964515, 0.072654255, -0.04237292, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -720,7 +705,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-transform = Transform3D(-0.041374855, 0.015186961, 0.99902576, 0.07322702, 0.997239, -0.012127075, -0.99645174, 0.07265427, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374847, 0.015186959, 0.99902564, 0.073226996, 0.9972389, -0.012127074, -0.9964515, 0.072654255, -0.04237292, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -732,7 +717,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -39.440727, 3.4062696, -31.493782)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-transform = Transform3D(-0.04137485, 0.01518696, 0.9990257, 0.073227, 0.99723893, -0.012127074, -0.9964516, 0.07265426, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137484, 0.015186958, 0.9990256, 0.07322699, 0.9972388, -0.0121270735, -0.9964514, 0.072654255, -0.042372916, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -783,6 +768,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/aprender_esc"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.069803, 0.5980296, 0.46073914)
 shape = SubResource("BoxShape3D_tx1r8")
+
+[node name="area_sistema" type="Area3D" parent="areas_dialogo"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areas_dialogo/area_sistema"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.85689, 0.49328613, 27.414963)
+shape = SubResource("BoxShape3D_saaml")
 
 [node name="Puzzle4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.249481, 2.4228096, 34.654564)
@@ -898,7 +891,7 @@ shape = SubResource("BoxShape3D_5kf0o")
 [node name="baterias" type="Node3D" parent="."]
 
 [node name="bateria" parent="baterias" instance=ExtResource("25_e71ch")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.779612, 3.0421968, -72.202324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.61415, 3.0421968, 31.745201)
 
 [connection signal="body_entered" from="area_win" to="." method="_on_area_win_body_entered"]
 [connection signal="body_entered" from="areas_dialogo/acender_lanterna" to="." method="_on_acender_lanterna_body_entered"]
@@ -906,6 +899,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.779612, 3.0421968, -72.2023
 [connection signal="body_exited" from="areas_dialogo/ja_aprendeu_agachar" to="." method="_on_ja_aprendeu_agachar_body_exited"]
 [connection signal="body_entered" from="areas_dialogo/aprender_esc" to="." method="_on_aprender_esq_body_entered"]
 [connection signal="body_exited" from="areas_dialogo/aprender_esc" to="." method="_on_aprender_esc_body_exited"]
+[connection signal="body_entered" from="areas_dialogo/area_sistema" to="." method="_on_area_sistema_body_entered"]
+[connection signal="body_exited" from="areas_dialogo/area_sistema" to="." method="_on_area_sistema_body_exited"]
 
 [editable path="lixeira"]
 [editable path="inimigos/inimigo"]

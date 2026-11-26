@@ -6,8 +6,10 @@ signal pegou_bateria
 @export var velocidade := 5.0
 @export var sensibilidade := 0.001
 @export var cofre_mod : Node3D
+@export var sistema : Node3D
 var dentro_da_area_do_cofre := false
 var dentro_da_area_da_bateria := false
+var dentro_da_area_do_sistema := false
 
 # Energia da lanterna
 @export var energia_maxima := 100.0
@@ -102,6 +104,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		pegar_bateria(quantia_bateria)
 		pegou_bateria.emit()
+		return
+	
+	if event.is_action_pressed("interagir") and dentro_da_area_do_sistema:
+		sistema.posicionar(self)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		tocar_na_mesh(true)
 		return
 
 func _physics_process(delta: float) -> void:
@@ -201,7 +209,7 @@ func exit_focus() -> void:
 		return
 	var target: Transform3D = camera.get_parent().global_transform * savando_local_transform
 	_tween_camera(target, _on_exit_finished)
-	
+	tocar_na_mesh(false)
 
 func _on_exit_finished() -> void:
 	camera.top_level = false
@@ -243,7 +251,14 @@ func pegar_bateria(qtd : float):
 
 func interagir_txt(exibir : bool):
 	if exibir:
-		interagir.text = "[F] - consumir"
+		interagir.text = "[F] - interagir"
 		interagir.visible = true
 	else:
 		interagir.visible = false
+
+@onready var skeleton_mesh: Skeleton3D = $Armature/Skeleton3D
+func tocar_na_mesh(invisivel : bool):
+	if invisivel:
+		skeleton_mesh.visible = false
+	else:
+		skeleton_mesh.visible = true
