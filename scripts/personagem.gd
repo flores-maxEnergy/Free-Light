@@ -136,6 +136,8 @@ func _physics_process(delta: float) -> void:
 		nao_pode_levantar = false
 
 	move_and_slide()
+	# Permitir empurrar caixas
+	empurrar_caixas()
 
 	# Consumir energia enquanto a lanterna estiver ligada
 	if luz_peito.visible:
@@ -207,3 +209,15 @@ func _tween_camera(target: Transform3D, on_done: Callable = Callable()) -> void:
 
 func _set_cam_blend(t: float, from: Transform3D, to: Transform3D) -> void:
 	camera.global_transform = from.interpolate_with(to, t)
+
+
+func empurrar_caixas():
+	for i in range(get_slide_collision_count()):
+		var colisao = get_slide_collision(i)
+		var objeto = colisao.get_collider()
+
+		if objeto is RigidBody3D:
+			var direcao_empurrao = -colisao.get_normal()
+			direcao_empurrao.y = 0.0
+			direcao_empurrao = direcao_empurrao.normalized()
+			objeto.apply_central_force(direcao_empurrao * 180.0)
