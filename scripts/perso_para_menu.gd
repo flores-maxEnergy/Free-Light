@@ -11,7 +11,6 @@ var energia_atual := 100.0
 @onready var animation: AnimationPlayer = $AnimationPlayer
 var esta_agachado : bool = false
 var camera_primeira_ps = false
-@onready var batendo_no_teto: ShapeCast3D = $batendo_no_teto
 var nao_pode_levantar = false
 
 var life = 1
