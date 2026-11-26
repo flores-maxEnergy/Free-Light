@@ -1,0 +1,11 @@
+Model Information:
+* title:	Minimalist Battery 3D Model
+* source:	https://sketchfab.com/3d-models/minimalist-battery-3d-model-9d84818a23f64c0f8a35055d5e6758ea
+* author:	Cirsev (https://sketchfab.com/Cirsev)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Minimalist Battery 3D Model" (https://sketchfab.com/3d-models/minimalist-battery-3d-model-9d84818a23f64c0f8a35055d5e6758ea) by Cirsev (https://sketchfab.com/Cirsev) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
