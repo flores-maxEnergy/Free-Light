@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://e41lhfg2wccm"]
+[gd_scene load_steps=3 format=3 uid="uid://e41lhfg2wccm"]
 
+[ext_resource type="Script" uid="uid://don4skmo77xtx" path="res://scenes/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://c1sxfd0v3rpfr" path="res://assets/FREE.png" id="1_yqeox"]
 
 [node name="Menu principal" type="Node2D"]
@@ -9,12 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_right = 803.0
-offset_bottom = 503.0
-color = Color(0, 0, 0, 1)
+script = ExtResource("1_vjb58")
 
 [node name="Iniciar Jogo" type="Button" parent="Control"]
 layout_mode = 0
@@ -44,3 +40,7 @@ text = "sair do jogo"
 position = Vector2(305.88388, 108.74999)
 scale = Vector2(0.39016736, 0.39016736)
 texture = ExtResource("1_yqeox")
+
+[connection signal="button_down" from="Control/Iniciar Jogo" to="Control" method="_on_iniciar_jogo_button_down"]
+[connection signal="button_down" from="Control/Controles" to="Control" method="_on_controles_button_down"]
+[connection signal="button_down" from="Control/Sair do jogo" to="Control" method="_on_sair_do_jogo_button_down"]

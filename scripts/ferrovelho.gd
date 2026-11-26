@@ -9,6 +9,7 @@ extends Node3D
 @onready var text_animation: AnimationPlayer = $CanvasLayer/Control/text_animation
 
 func _ready() -> void:
+	liberar_saida()
 	personagem.saida_liberada.connect(liberar_saida)
 
 func liberar_saida():
@@ -16,7 +17,7 @@ func liberar_saida():
 
 func _on_area_win_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jogador"):
-		get_tree().change_scene_to_file("res://scenes/tela_win.tscn")
+		get_tree().change_scene_to_file("res://scenes/tela_vitoria.tscn")
 
 func _on_acender_lanterna_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):

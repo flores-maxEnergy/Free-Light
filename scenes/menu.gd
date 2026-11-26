@@ -1,27 +1,17 @@
-
 extends Control
-@export var cena_jogo: PackedScene
-@onready var botao_iniciar: Button = $VBoxContainer/inicio/Button
-@onready var botao_tutorial: Button = $VBoxContainer/tutorial/Button
-@onready var botao_sair: Button = $VBoxContainer/saída/Button
 
 func _ready() -> void:
-	# Conectar os botões
-	botao_iniciar.pressed.connect(_on_iniciar_pressed)
-	botao_tutorial.pressed.connect(_on_tutorial_pressed)
-	botao_sair.pressed.connect(_on_sair_pressed)
+	pass
 
-func _on_iniciar_pressed() -> void:
-	if cena_jogo == null:
-		push_warning("A cena do jogo ainda não foi configurada!")
-		return
-	get_tree().change_scene_to_packed(cena_jogo)
+func _on_iniciar_jogo_button_down() -> void:
+	get_tree().change_scene_to_file("res://scenes/ferrovelho.tscn")
 
-func _on_tutorial_pressed() -> void:
+func _on_controles_button_down() -> void:
 	var janela = AcceptDialog.new()
 	janela.title = "Tutorial"
 	janela.dialog_text = "Bem-vindo ao jogo!\n\nEm breve você encontrará aqui as instruções para jogar."
 	add_child(janela)
 	janela.popup_centered()
-func _on_sair_pressed() -> void:
+
+func _on_sair_do_jogo_button_down() -> void:
 	get_tree().quit()

@@ -1,0 +1,380 @@
+[gd_scene load_steps=10 format=3 uid="uid://brhc7nvtrohsc"]
+
+[ext_resource type="PackedScene" uid="uid://qf2sv3bqaoj1" path="res://scenes/perso_para_menu.tscn" id="1_mut0c"]
+[ext_resource type="PackedScene" uid="uid://dv6hohnwuokxq" path="res://scenes/abajur.tscn" id="2_fewsn"]
+[ext_resource type="PackedScene" uid="uid://e41lhfg2wccm" path="res://scenes/menu.tscn" id="3_r0qk8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fewsn"]
+sky_top_color = Color(0.3411771, 0.42995906, 0.6846487, 1)
+sky_horizon_color = Color(0.25385714, 0.15591824, 0.24963123, 1)
+sky_curve = 0.55981946
+sky_energy_multiplier = 0.0
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xsbc4"]
+sky_material = SubResource("ProceduralSkyMaterial_fewsn")
+
+[sub_resource type="Environment" id="Environment_r0qk8"]
+background_mode = 2
+sky = SubResource("Sky_xsbc4")
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.0
+reflected_light_source = 1
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.68
+glow_bloom = 0.25
+
+[sub_resource type="Animation" id="Animation_fewsn"]
+resource_name = "animation"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("perso:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2127302, 0.73432446, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("perso:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.4470215, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("perso/Armature/Skeleton3D/cabeca:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.52, 0.88, 1.59, 2.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.019641858, -0.01652014, -0.2751841), Vector3(-0.019641858, -0.01652014, -0.2751841), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 1.3843951, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("perso/Armature/Skeleton3D/abertura:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("perso/Armature/Skeleton3D/aber_esq:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("perso/Armature/Skeleton3D/aber_dir:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("perso/Armature/Skeleton3D/corpo:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("perso/Armature/Skeleton3D/luz:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("perso/Armature/Skeleton3D/rodas:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.29, 2.77),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3840461, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("perso/SpotLight3D:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.3, 2.78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.538595, 0), Vector3(0, -0.12634449, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("perso/SpotLight3D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.3, 2.78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.56078714, 0, 0), Vector3(-0.058846176, 0, -0.5161856)]
+}
+
+[sub_resource type="Animation" id="Animation_r0qk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("perso:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2127302, 0.73432446, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("perso:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.4470215, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("perso/Armature/Skeleton3D/cabeca:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019641858, -0.01652014, -0.2751841)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("perso/Armature/Skeleton3D/abertura:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("perso/Armature/Skeleton3D/aber_esq:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("perso/Armature/Skeleton3D/aber_dir:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("perso/Armature/Skeleton3D/corpo:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("perso/Armature/Skeleton3D/luz:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("perso/Armature/Skeleton3D/rodas:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("perso/SpotLight3D:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.538595, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("perso/SpotLight3D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.56078714, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aojmr"]
+_data = {
+&"RESET": SubResource("Animation_r0qk8"),
+&"animation": SubResource("Animation_fewsn")
+}
+
+[node name="tela_para_menu" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1621094, 0, 1.1610107)
+size = Vector3(19.36914, 0.3161621, 5.5195313)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.360199, 2.8056183, -1.979079)
+size = Vector3(20.936829, 6.6112366, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.91425395, -0.021909578, 0.40454873, -0.12045191, 0.96808374, -0.21978396, -0.38682175, -0.24966706, -0.88771343, -19.76885, 0, -65.21054)
+light_energy = 0.361
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r0qk8")
+
+[node name="perso" parent="." instance=ExtResource("1_mut0c")]
+transform = Transform3D(-0.7683282, 0, -0.64005595, 0, 1, 0, 0.64005595, 0, -0.7683282, 1.2127302, 0.73432446, 0)
+
+[node name="aber_dir" parent="perso/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="aber_esq" parent="perso/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="abertura" parent="perso/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="cabeca" parent="perso/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.9621558, 0.2719994, -0.016516203, -0.2716717, 0.96219003, 0.019640595, 0.021233948, -0.014410331, 0.9996707, 0, 0, 0)
+
+[node name="corpo" parent="perso/Armature/Skeleton3D" index="4"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="luz" parent="perso/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="rodas" parent="perso/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 2.3841858e-07, 0, -2.3841858e-07)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55958366, 1.6580155, 3.9021711)
+
+[node name="luz" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65367603, 1.147464, 1.5009036)
+light_color = Color(0.87793857, 0.7988405, 0.5314986, 1)
+light_energy = 4.636
+light_indirect_energy = 2.498
+omni_range = 8.344
+omni_attenuation = 1.278
+
+[node name="abajur" parent="." instance=ExtResource("2_fewsn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.6537727, 0.24824607, 1.2136705)
+
+[node name="animation_scene" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aojmr")
+}
+autoplay = "animation"
+
+[node name="Menu principal" parent="." instance=ExtResource("3_r0qk8")]
+position = Vector2(77, 79)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0196049, 0.79322565, 0.6086121, -0.025538536, -0.6089277, 0.7928145, 0.99948156, -1.1176413e-08, 0.032195795, -0.37369168, 6.7553487, -1.0310934)
+light_color = Color(0.30973467, 0.5299331, 0.8001439, 1)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 10.713
+spot_attenuation = -0.39
+spot_angle = 32.5
+
+[editable path="perso"]
