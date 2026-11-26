@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dym8fouev5el3"]
+[gd_scene load_steps=16 format=4 uid="uid://dym8fouev5el3"]
 
 [ext_resource type="Script" uid="uid://d4nosg0kkebfj" path="res://scripts/inimigo.gd" id="1_pt50e"]
 [ext_resource type="Texture2D" uid="uid://b6j6v8kc0t3ik" path="res://assets/modelagens/V1-G1L_detalhes.png" id="2_4er16"]
 [ext_resource type="Texture2D" uid="uid://cs88uy5b5lsqu" path="res://assets/modelagens/V1-G1L_RODA.png" id="3_ui621"]
+[ext_resource type="AudioStream" uid="uid://bmmokr53eknan" path="res://sons/som do inimigo.mp3" id="4_4er16"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4er16"]
 height = 1.4408569
@@ -468,6 +469,11 @@ skin = SubResource("Skin_4er16")
 libraries = {
 &"": SubResource("AnimationLibrary_6t4my")
 }
+
+[node name="sominimigo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4er16")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="corpo" to="." method="_on_corpo_body_entered"]
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

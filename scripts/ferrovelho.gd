@@ -8,6 +8,8 @@ extends Node3D
 @onready var sprite_dialogo: AnimatedSprite2D = $CanvasLayer/Control/sprite_dialogo
 @onready var text_animation: AnimationPlayer = $CanvasLayer/Control/text_animation
 
+@onready var som_ambiente: AudioStreamPlayer = $Sons/SomAmbiente
+
 func _ready() -> void:
 	liberar_saida()
 	personagem.saida_liberada.connect(liberar_saida)

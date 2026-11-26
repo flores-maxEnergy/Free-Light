@@ -18,6 +18,15 @@ var dentro_da_area_do_sistema := false
 
 var energia_atual := 100.0
 
+# Sons do personagem
+@onready var som_agachar: AudioStreamPlayer = $"Sons personagem/SomAgachar"
+@onready var som_passos: AudioStreamPlayer = $"Sons personagem/SomPassos"
+
+@export var intervalo_passos := 0.45
+@export var intervalo_passos_agachado := 0.65
+
+var tempo_proximo_passo := 0.0
+
 #-------Câmera
 @onready var camera: Camera3D = $cabeca/Camera3D
 var focando := false
@@ -83,10 +92,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			velocidade = 3.0
 			esta_agachado = true
 			animation.play("agachar")
+			som_agachar.play()
 		else:
 			velocidade = 5.0
 			esta_agachado = false
 			animation.play("agachar", -1.0, -1.0, true)
+			som_agachar.play()
 	
 	if focando:
 		if event.is_action_pressed("interagir"):
@@ -154,6 +165,7 @@ func _physics_process(delta: float) -> void:
 		nao_pode_levantar = false
 
 	move_and_slide()
+	atualizar_som_passos(delta, input_dir)
 	# Permitir empurrar caixas
 	empurrar_caixas()
 
@@ -238,6 +250,20 @@ func empurrar_caixas():
 			direcao_empurrao.y = 0.0
 			direcao_empurrao = direcao_empurrao.normalized()
 			objeto.apply_central_force(direcao_empurrao * 180.0)
+			
+func atualizar_som_passos(_delta: float, input_dir: Vector2) -> void:
+	var caminhando = (
+		input_dir.length() > 0.1
+		and is_on_floor()
+		and not focando
+	)
+
+	if caminhando:
+		if not som_passos.playing:
+			som_passos.play()
+	else:
+		if som_passos.playing:
+			som_passos.stop()
 
 func pegar_bateria(qtd : float):
 	var soma = energia_atual + qtd

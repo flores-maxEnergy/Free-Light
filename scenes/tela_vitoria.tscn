@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmkso4hket0rh"]
+[gd_scene load_steps=6 format=3 uid="uid://bmkso4hket0rh"]
 
 [ext_resource type="Texture2D" uid="uid://bvu2bdh8hrc5c" path="res://scenes/liberdade 1.png" id="1_3redg"]
 [ext_resource type="Texture2D" uid="uid://dwnoq0oldtf63" path="res://scenes/liberdade 20p.png" id="2_4wkkb"]
 [ext_resource type="Texture2D" uid="uid://fpry4p2ud4m1" path="res://scenes/liberdade 40 p.png" id="3_820o3"]
+[ext_resource type="AudioStream" uid="uid://cb2wg50gd6rw5" path="res://sons/lili cantou.mp3" id="4_4wkkb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_80vbu"]
 animations = [{
@@ -72,3 +73,7 @@ theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 1
 theme_override_font_sizes/font_size = 23
 text = "Você está livre para viver"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4wkkb")
+autoplay = true

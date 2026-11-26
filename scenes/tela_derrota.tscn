@@ -52,7 +52,7 @@ text = "Jogar novamente"
 
 [node name="somderrota" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_25y64")
-volume_db = -5.286
+volume_db = -16.877
 autoplay = true
 
 [connection signal="button_down" from="jogar_btn" to="." method="_on_jogar_btn_button_down"]

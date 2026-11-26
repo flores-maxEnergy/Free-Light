@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bqf66rtl85m6v" path="res://scenes/kill_zone.tscn" id="20_k7oui"]
 [ext_resource type="Script" uid="uid://bfhd4hocksaf7" path="res://scripts/botao_pressao.gd" id="23_u5vjk"]
 [ext_resource type="Script" uid="uid://dniiq7h8hm4us" path="res://scripts/porta.gd" id="24_e71ch"]
+[ext_resource type="AudioStream" uid="uid://dojwrbsso84jo" path="res://sons/ambiente.mp3" id="25_e71ch"]
 [ext_resource type="PackedScene" uid="uid://wkylt30fc8yf" path="res://scenes/bateria.tscn" id="25_e71ch"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
@@ -888,6 +889,13 @@ physics_material_override = SubResource("PhysicsMaterial_qi6ct")
 transform = Transform3D(1, 0, 0, 0, 0.9999996, 0, 0, 0, 1, 0.06088257, -0.51136756, -0.30639648)
 shape = SubResource("BoxShape3D_5kf0o")
 
+[node name="Sons" type="Node3D" parent="."]
+
+[node name="SomAmbiente" type="AudioStreamPlayer" parent="Sons"]
+stream = ExtResource("25_e71ch")
+volume_db = -20.247
+autoplay = true
+parameters/looping = true
 [node name="baterias" type="Node3D" parent="."]
 
 [node name="bateria" parent="baterias" instance=ExtResource("25_e71ch")]

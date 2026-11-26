@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://el7u5nm01trl"
+path="res://.godot/imported/fundo menu.mp3-a327a61f13e52ed020bf4749739eaf34.mp3str"
+
+[deps]
+
+source_file="res://sons/fundo menu.mp3"
+dest_files=["res://.godot/imported/fundo menu.mp3-a327a61f13e52ed020bf4749739eaf34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

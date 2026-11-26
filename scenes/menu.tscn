@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://don4skmo77xtx" path="res://scenes/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://c1sxfd0v3rpfr" path="res://assets/FREE.png" id="1_yqeox"]
+[ext_resource type="AudioStream" uid="uid://el7u5nm01trl" path="res://sons/fundo menu.mp3" id="2_vjb58"]
 [ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="2_con2f"]
 [ext_resource type="StyleBox" uid="uid://dxqkq4bvvghje" path="res://assets/texturas/button_texture_hover.tres" id="3_4ytvr"]
 [ext_resource type="StyleBox" uid="uid://xthh47mnefsk" path="res://assets/texturas/button_texture.tres" id="4_g3eks"]
@@ -66,6 +67,11 @@ position = Vector2(429, 198)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_yqeox")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vjb58")
+volume_db = -10.272
+autoplay = true
+parameters/looping = true
 [connection signal="button_down" from="Control/Iniciar Jogo" to="Control" method="_on_iniciar_jogo_button_down"]
 [connection signal="button_down" from="Control/Controles" to="Control" method="_on_controles_button_down"]
 [connection signal="button_down" from="Control/Sair do jogo" to="Control" method="_on_sair_do_jogo_button_down"]

@@ -17,6 +17,7 @@ var tempo_visao = 0.25
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var rayCast: RayCast3D = $RayCast3D
 @onready var rotas: Array[Node] = $rotas.get_children()
+@onready var som_inimigo: AudioStreamPlayer = $sominimigo
 
 #------------- Controle
 enum Estado { PARADO, PATRULHA, SEGUIR }
@@ -32,6 +33,12 @@ var indo_ult_pos: bool = false
 var destino_atual: Vector3
 var travou: bool = false
 
+# Controle do volume do inimigo
+@export var distancia_som_maxima: float = 18.0
+@export var volume_longe: float = -18.0
+@export var volume_perto: float = -2.0
+@export var velocidade_volume: float = 3.0
+
 func _ready() -> void:
 	jogador = get_tree().get_first_node_in_group("jogador")
 	rayCast.add_exception(self)
@@ -40,6 +47,7 @@ func _ready() -> void:
 	mudar_estado(Estado.PARADO)
 
 func _physics_process(delta: float) -> void:
+	atualizar_som_inimigo(delta)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
@@ -194,3 +202,27 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 func _on_corpo_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jogador"):
 		body.tomar_dano()
+
+func atualizar_som_inimigo(delta: float) -> void:
+	if jogador == null:
+		return
+
+	var distancia = distancia_ate_jogador()
+
+	if distancia >= distancia_som_maxima:
+		som_inimigo.volume_db = -80.0
+		return
+
+	var proporcao = 1.0 - (distancia / distancia_som_maxima)
+
+	var volume_alvo = lerpf(
+		volume_longe,
+		volume_perto,
+		proporcao
+	)
+
+	som_inimigo.volume_db = move_toward(
+		som_inimigo.volume_db,
+		volume_alvo,
+		velocidade_volume * 10.0 * delta
+	)
