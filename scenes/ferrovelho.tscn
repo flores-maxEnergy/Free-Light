@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://ruey1wmimk1p"]
+[gd_scene load_steps=95 format=3 uid="uid://ruey1wmimk1p"]
 
 [ext_resource type="Script" uid="uid://dn5wh3qwn3qy8" path="res://scripts/ferrovelho.gd" id="1_j6bkg"]
 [ext_resource type="PackedScene" uid="uid://bfjys8bebisdu" path="res://scenes/barra_luz.tscn" id="3_7fe06"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bqf66rtl85m6v" path="res://scenes/kill_zone.tscn" id="20_k7oui"]
 [ext_resource type="Script" uid="uid://bfhd4hocksaf7" path="res://scripts/botao_pressao.gd" id="23_u5vjk"]
 [ext_resource type="Script" uid="uid://dniiq7h8hm4us" path="res://scripts/porta.gd" id="24_e71ch"]
+[ext_resource type="PackedScene" uid="uid://wkylt30fc8yf" path="res://scenes/bateria.tscn" id="25_e71ch"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7fe06"]
 sky_top_color = Color(0.3411771, 0.42995906, 0.6846487, 1)
@@ -628,6 +629,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04396057, -0.0336051, 0.04
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0556641, 50.62206)
 size = Vector3(4.404297, 4.734619, 1)
 
+[node name="area_5" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -0.8926003, 26.390205)
+size = Vector3(16.83191, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.42458, -0.8926003, 28.330833)
+size = Vector3(5.2953415, 1, 3.0459595)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
+transform = Transform3D(1, 0, 0, 0, 0.99196523, -0.1265106, 0, 0.1265106, 0.99196523, 23.462, -1.351, 33.419)
+size = Vector3(3.370449, 1, 7.316437)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -1.1863015, 23.937122)
+size = Vector3(16.83191, 0.41259766, 4.425171)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/area_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.865013, -0.8926003, 19.454134)
+size = Vector3(16.83191, 1, 7.7686768)
+
 [node name="quadro" parent="." instance=ExtResource("8_6h02v")]
 transform = Transform3D(-0.059961796, 0, -1.0327262, 0, 2.52, 0, 2.3986497, 0, -0.025816461, -23.64624, 0.13652468, -26.858398)
 
@@ -653,15 +676,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.61048, -0.5490309, -32.88
 
 [node name="item_2" parent="itens" instance=ExtResource("12_bm3i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.588743, 1.8826818, -34.66972)
-visible = false
 
 [node name="item_3" parent="itens" instance=ExtResource("13_j6bkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.75472, 2.5897527, 14.592032)
-visible = false
 
 [node name="item_4" parent="itens" instance=ExtResource("14_5lmqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.655157, 1.007596, 14.484234)
-visible = false
 
 [node name="area_win" type="Area3D" parent="."]
 collision_mask = 2
@@ -676,8 +696,7 @@ shape = SubResource("BoxShape3D_j6bkg")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.196432, 3.4062696, -31.853134)
 
 [node name="brilho" parent="inimigos/inimigo" index="4"]
-
-transform = Transform3D(-0.041374877, 0.0151869645, 0.999026, 0.07322705, 0.99723923, -0.012127078, -0.9964522, 0.072654285, -0.042372935, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374862, 0.015186962, 0.9990258, 0.073227026, 0.99723905, -0.012127076, -0.99645185, 0.07265427, -0.042372927, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -689,8 +708,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.752201, 3.4062696, 13.756477)
 
 [node name="brilho" parent="inimigos/inimigo2" index="4"]
-
-transform = Transform3D(-0.04137487, 0.015186964, 0.99902594, 0.07322704, 0.9972392, -0.012127078, -0.9964521, 0.07265428, -0.04237293, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374855, 0.015186961, 0.99902576, 0.07322702, 0.997239, -0.012127075, -0.99645174, 0.07265427, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo2/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -702,8 +720,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.236233, 3.4062696, 7.4614677)
 
 [node name="brilho" parent="inimigos/inimigo3" index="4"]
-
-transform = Transform3D(-0.04137487, 0.015186964, 0.99902594, 0.07322704, 0.9972392, -0.012127078, -0.9964521, 0.07265428, -0.04237293, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.041374855, 0.015186961, 0.99902576, 0.07322702, 0.997239, -0.012127075, -0.99645174, 0.07265427, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo3/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -715,8 +732,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7586913, 0, 0)
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -39.440727, 3.4062696, -31.493782)
 
 [node name="brilho" parent="inimigos/inimigo4" index="4"]
-
-transform = Transform3D(-0.041374866, 0.015186963, 0.9990259, 0.07322703, 0.9972391, -0.012127077, -0.996452, 0.07265428, -0.04237293, -0.006739497, 1.6791643, -0.022283733)
+transform = Transform3D(-0.04137485, 0.01518696, 0.9990257, 0.073227, 0.99723893, -0.012127074, -0.9964516, 0.07265426, -0.042372923, -0.006739497, 1.6791643, -0.022283733)
 
 [node name="Marker3D" parent="inimigos/inimigo4/rotas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1433487)
@@ -878,6 +894,11 @@ physics_material_override = SubResource("PhysicsMaterial_qi6ct")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle4/Porta/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.9999996, 0, 0, 0, 1, 0.06088257, -0.51136756, -0.30639648)
 shape = SubResource("BoxShape3D_5kf0o")
+
+[node name="baterias" type="Node3D" parent="."]
+
+[node name="bateria" parent="baterias" instance=ExtResource("25_e71ch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.779612, 3.0421968, -72.202324)
 
 [connection signal="body_entered" from="area_win" to="." method="_on_area_win_body_entered"]
 [connection signal="body_entered" from="areas_dialogo/acender_lanterna" to="." method="_on_acender_lanterna_body_entered"]

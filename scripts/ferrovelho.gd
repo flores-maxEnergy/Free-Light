@@ -13,7 +13,9 @@ func _ready() -> void:
 	personagem.saida_liberada.connect(liberar_saida)
 
 func liberar_saida():
+	if is_instance_valid(saida_final_mesh):
 		saida_final_mesh.queue_free()
+		saida_final_mesh = null
 
 func _on_area_win_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jogador"):

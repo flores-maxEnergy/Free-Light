@@ -1,15 +1,18 @@
 extends CharacterBody3D
 
 signal saida_liberada()
+signal pegou_bateria
 
 @export var velocidade := 5.0
 @export var sensibilidade := 0.001
 @export var cofre_mod : Node3D
 var dentro_da_area_do_cofre := false
+var dentro_da_area_da_bateria := false
 
 # Energia da lanterna
 @export var energia_maxima := 100.0
 @export var consumo_por_segundo := 2.0
+@export var quantia_bateria := 25
 
 var energia_atual := 100.0
 
@@ -29,7 +32,7 @@ var camera_primeira_ps = false
 var nao_pode_levantar = false
 
 var life = 1
-@onready var mira_label: Label = $CanvasLayer/mira
+@onready var interagir: Label = $CanvasLayer/interagir
 
 #itens
 var item_1 : bool = false
@@ -38,7 +41,7 @@ var item_3 : bool = false
 var item_4 : bool = false
 
 func _ready() -> void:
-	mira_label.visible = false
+	interagir.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera.current = true
 
@@ -92,6 +95,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interagir") and dentro_da_area_do_cofre:
 		cofre_mod.posicionar(self)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
+	
+	if event.is_action_pressed("interagir") and dentro_da_area_da_bateria:
+		if energia_atual == 100.0:
+			return
+		pegar_bateria(quantia_bateria)
+		pegou_bateria.emit()
 		return
 
 func _physics_process(delta: float) -> void:
@@ -149,21 +159,21 @@ func _physics_process(delta: float) -> void:
 
 	# Atualizar a barra
 	barra_energia.value = energia_atual
-	
-@onready var item_2_mesh: RigidBody3D = $"../itens/item_2"
+
+#@onready var item_2_mesh: RigidBody3D = $"../itens/item_2"
 func pegar_item_1():
 	item_1 = true
-	item_2_mesh.visible = true
+	#item_2_mesh.visible = true
 
-@onready var item_3_mesh: RigidBody3D = $"../itens/item_3"
+#@onready var item_3_mesh: RigidBody3D = $"../itens/item_3"
 func pegar_item_2():
 	item_2 = true
-	item_3_mesh.visible = true
+	#item_3_mesh.visible = true
 	
-@onready var item_4_mesh: RigidBody3D = $"../itens/item_4"
+#@onready var item_4_mesh: RigidBody3D = $"../itens/item_4"
 func pegar_item_3():
 	item_3 = true
-	item_4_mesh.visible = true
+	#item_4_mesh.visible = true
 
 func pegar_item_4():
 	item_4 = true
@@ -210,7 +220,6 @@ func _tween_camera(target: Transform3D, on_done: Callable = Callable()) -> void:
 func _set_cam_blend(t: float, from: Transform3D, to: Transform3D) -> void:
 	camera.global_transform = from.interpolate_with(to, t)
 
-
 func empurrar_caixas():
 	for i in range(get_slide_collision_count()):
 		var colisao = get_slide_collision(i)
@@ -221,3 +230,20 @@ func empurrar_caixas():
 			direcao_empurrao.y = 0.0
 			direcao_empurrao = direcao_empurrao.normalized()
 			objeto.apply_central_force(direcao_empurrao * 180.0)
+
+func pegar_bateria(qtd : float):
+	var soma = energia_atual + qtd
+	if soma > energia_maxima:
+		var diferenca = energia_maxima - energia_atual
+		energia_atual += diferenca
+		dentro_da_area_da_bateria = false
+		return
+	energia_atual += qtd
+	dentro_da_area_da_bateria = false
+
+func interagir_txt(exibir : bool):
+	if exibir:
+		interagir.text = "[F] - consumir"
+		interagir.visible = true
+	else:
+		interagir.visible = false
