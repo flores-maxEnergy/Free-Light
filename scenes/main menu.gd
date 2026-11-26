@@ -11,6 +11,7 @@ func _on_iniciar_jogo_pressed() -> void:
 
 
 func _on_controles_pressed() -> void:
+	pass
 	#get_tree().change_scene_to_file(não feito ainda)
 
 

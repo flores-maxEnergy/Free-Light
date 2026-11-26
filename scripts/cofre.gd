@@ -25,6 +25,10 @@ var contador_btn_2 = 0                             #
 var contador_btn_3 = 0                             #
 #---------------------------------------------------
 
+var personagem : CharacterBody3D
+func _ready() -> void:
+	personagem = get_tree().get_first_node_in_group("jogador")
+
 func _physics_process(delta: float) -> void:
 	#SENHA: 512
 	if contador_btn_1 == 5 and contador_btn_2 == 1 and contador_btn_3 == 2 and not abriu_o_cofre:
@@ -36,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		text_animation.play("saida", -1.0, -1.0, true)
 		sprite_dialogo.play_backwards("dialogo_intro")
 		collision.queue_free()
+		personagem.exit_focus()
 
 #=====================================================<------SETAS DO PRIMEIRO BOTÃO
 #===--------------------seta1Cima------------------===

@@ -9,14 +9,17 @@ extends Node3D
 @onready var text_animation: AnimationPlayer = $CanvasLayer/Control/text_animation
 
 func _ready() -> void:
+	liberar_saida()
 	personagem.saida_liberada.connect(liberar_saida)
 
 func liberar_saida():
+	if is_instance_valid(saida_final_mesh):
 		saida_final_mesh.queue_free()
+		saida_final_mesh = null
 
 func _on_area_win_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jogador"):
-		get_tree().change_scene_to_file("res://scenes/tela_win.tscn")
+		get_tree().change_scene_to_file("res://scenes/tela_vitoria.tscn")
 
 func _on_acender_lanterna_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):
@@ -56,3 +59,14 @@ func _on_aprender_esq_body_entered(body: Node3D) -> void:
 func _on_aprender_esc_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):
 		body.dentro_da_area_do_cofre = false
+
+
+func _on_area_sistema_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("jogador")):
+		body.dentro_da_area_do_sistema = true
+		body.interagir_txt(true)
+
+func _on_area_sistema_body_exited(body: Node3D) -> void:
+	if(body.is_in_group("jogador")):
+		body.dentro_da_area_do_sistema = false
+		body.interagir_txt(false)

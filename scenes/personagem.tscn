@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://hbsmy5au8vt1"]
+[gd_scene load_steps=25 format=4 uid="uid://hbsmy5au8vt1"]
 
 [ext_resource type="Script" uid="uid://qm848wcdvtdu" path="res://scripts/personagem.gd" id="1_wtnic"]
 [ext_resource type="Texture2D" uid="uid://p862d6v7lb4a" path="res://assets/modelagens/F-7E3_roboF.png" id="2_bss74"]
+[ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="2_en60c"]
 [ext_resource type="Texture2D" uid="uid://r3317w25ax7y" path="res://assets/modelagens/F-7E3_esteira_rodas.png" id="3_en60c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wtnic"]
@@ -424,7 +425,7 @@ velocidade = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6911999, 1.3793948, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-transform = Transform3D(-3.4213997e-08, 0.4432902, -0.8963781, 1.9204695e-08, 0.8963781, 0.4432902, 1, -2.0479385e-09, -3.918193e-08, -0.0039259195, 0.0025384426, 0)
+transform = Transform3D(-3.4213997e-08, 0.44329014, -0.896378, 1.9204695e-08, 0.896378, 0.44329014, 1, -2.0479383e-09, -3.9181927e-08, -0.0039259195, 0.0025384426, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.31586483, 0, 0, 0, 0.31586483, 0, 0, 0, 0.31586483, 0, 0.82750684, 0)
@@ -440,21 +441,21 @@ shape = SubResource("BoxShape3D_bss74")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="mira" type="Label" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
+[node name="interagir" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -64.0
-offset_right = 9.0
-offset_bottom = 24.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -193.0
+offset_right = 387.0
+offset_bottom = -105.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_en60c")
+theme_override_font_sizes/font_size = 16
 text = "."
 
 [node name="batendo_no_teto" type="ShapeCast3D" parent="."]
@@ -484,14 +485,14 @@ bones/2/name = "dir"
 bones/2/parent = -1
 bones/2/rest = Transform3D(1.0000001, 0, -1.5815075e-06, -1.5815075e-06, 0, -1.0000001, 0, 1.0000001, 0, 7.8079186e-17, 0.92805946, -0.22104608)
 bones/2/enabled = true
-bones/2/position = Vector3(-2.898353e-08, 0.9097329, -0.52964026)
+bones/2/position = Vector3(-3.0769893e-08, 0.9086033, -0.54866016)
 bones/2/rotation = Quaternion(0.70710677, -5.591472e-07, -5.591472e-07, 0.70710677)
 bones/2/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/3/name = "esq"
 bones/3/parent = -1
 bones/3/rest = Transform3D(1.0000001, 0, -1.6053574e-06, 1.6053574e-06, 0, 1.0000001, 0, -1.0000001, 0, 1.1378003e-16, 0.92805946, 0.37035945)
 bones/3/enabled = true
-bones/3/position = Vector3(2.0654753e-08, 0.9151933, 0.6604888)
+bones/3/position = Vector3(2.1927772e-08, 0.91440034, 0.67837065)
 bones/3/rotation = Quaternion(-0.70710677, -5.6757943e-07, 5.6757943e-07, 0.70710677)
 bones/3/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/4/name = "neutral_bone"

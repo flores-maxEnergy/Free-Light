@@ -1,46 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://e41lhfg2wccm"]
+[gd_scene load_steps=7 format=3 uid="uid://e41lhfg2wccm"]
 
+[ext_resource type="Script" uid="uid://don4skmo77xtx" path="res://scenes/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://c1sxfd0v3rpfr" path="res://assets/FREE.png" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="2_con2f"]
+[ext_resource type="StyleBox" uid="uid://dxqkq4bvvghje" path="res://assets/texturas/button_texture_hover.tres" id="3_4ytvr"]
+[ext_resource type="StyleBox" uid="uid://xthh47mnefsk" path="res://assets/texturas/button_texture.tres" id="4_g3eks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.002919497, 0.10467359, 0.21649653, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.95601314, 0.78305954, 3.85046e-07, 1)
 
 [node name="Menu principal" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_right = 803.0
-offset_bottom = 503.0
-color = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = -101.0
+offset_right = 38.0
+offset_bottom = -61.0
+script = ExtResource("1_vjb58")
 
 [node name="Iniciar Jogo" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 67.0
-offset_top = 225.0
-offset_right = 257.0
+offset_top = 213.0
+offset_right = 303.0
 offset_bottom = 256.0
+theme_override_colors/font_color = Color(0.6476957, 0.8174093, 0.9653842, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = ExtResource("3_4ytvr")
 text = "iniciar o jogo"
 
 [node name="Controles" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 268.0
-offset_right = 257.0
-offset_bottom = 299.0
+offset_right = 304.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0.64705884, 0.8156863, 0.9647059, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+theme_override_styles/hover = ExtResource("3_4ytvr")
 text = "controles"
 
 [node name="Sair do jogo" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 311.0
-offset_right = 264.0
-offset_bottom = 342.0
+offset_left = 67.0
+offset_top = 323.0
+offset_right = 308.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.64705884, 0.8156863, 0.9647059, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_styles/normal = ExtResource("4_g3eks")
+theme_override_styles/hover = ExtResource("3_4ytvr")
 text = "sair do jogo"
 
 [node name="Free" type="Sprite2D" parent="Control"]
-position = Vector2(305.88388, 108.74999)
-scale = Vector2(0.39016736, 0.39016736)
+position = Vector2(429, 198)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_yqeox")
+
+[connection signal="button_down" from="Control/Iniciar Jogo" to="Control" method="_on_iniciar_jogo_button_down"]
+[connection signal="button_down" from="Control/Controles" to="Control" method="_on_controles_button_down"]
+[connection signal="button_down" from="Control/Sair do jogo" to="Control" method="_on_sair_do_jogo_button_down"]

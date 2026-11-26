@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv6hohnwuokxq"]
+
+[ext_resource type="Material" uid="uid://d18r63i4bkvn2" path="res://assets/texturas/item_1_texture.tres" id="1_h1868"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfir8"]
+albedo_color = Color(0.092126094, 0.19743401, 0.43282783, 1)
+
+[node name="abajur" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0067587495, 0)
+size = Vector3(0.34936523, 0.5, 0.32421875)
+material = SubResource("StandardMaterial3D_bfir8")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3520996, 0)
+size = Vector3(0.1, 1, 0.1)
+material = SubResource("StandardMaterial3D_bfir8")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1054807, 0)
+size = Vector3(1.1501465, 0.6248779, 1.1884766)
+material = ExtResource("1_h1868")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6101658, 0)
+size = Vector3(0.83618164, 0.6248779, 0.7705078)
+material = ExtResource("1_h1868")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9547107, 0)
+size = Vector3(0.5810547, 0.6248779, 0.46972656)
+material = ExtResource("1_h1868")
