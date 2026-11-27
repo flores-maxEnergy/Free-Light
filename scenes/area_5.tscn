@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://b44sbgwu1ipq2"]
+[gd_scene load_steps=67 format=4 uid="uid://b44sbgwu1ipq2"]
 
 [ext_resource type="Material" uid="uid://yk6enouq4o7e" path="res://assets/texturas/item_2_texture.tres" id="1_88odh"]
 [ext_resource type="Script" uid="uid://bdr28g3b0hmg2" path="res://scripts/area_5.gd" id="1_436o1"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cv70gxl307aet" path="res://assets/modelagens/loja_de_sucata_do_3rn35t0_24.jpg" id="16_126bu"]
 [ext_resource type="Texture2D" uid="uid://3d8ubdrn8p68" path="res://assets/modelagens/loja_de_sucata_do_3rn35t0_25.png" id="17_y3tfy"]
 [ext_resource type="Texture2D" uid="uid://bbhedtu5y7u6l" path="res://assets/modelagens/loja_de_sucata_do_3rn35t0_26.png" id="18_yen3c"]
+[ext_resource type="PackedScene" uid="uid://bqf66rtl85m6v" path="res://scenes/kill_zone.tscn" id="21_126bu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3tfy"]
 albedo_texture = ExtResource("7_5r24j")
@@ -142,6 +143,21 @@ tracks/6/keys = {
 "values": [Vector3(-5.25807, 0.35992432, 1.1311531)]
 }
 
+[sub_resource type="Animation" id="Animation_6bb4h"]
+resource_name = "avancar_ponte"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D/ponte:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.25807, 0.35992432, 1.1311531), Vector3(-5.25807, 0.35992432, -1.7466373)]
+}
+
 [sub_resource type="Animation" id="Animation_mdg4y"]
 resource_name = "correto"
 length = 0.2
@@ -248,21 +264,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false, false]
-}
-
-[sub_resource type="Animation" id="Animation_6bb4h"]
-resource_name = "avancar_ponte"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D/ponte:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-5.25807, 0.35992432, 1.1311531), Vector3(-5.25807, 0.35992432, -1.7466373)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6sm8s"]
@@ -661,6 +662,9 @@ radius = 1.5063477
 height = 1.6320801
 radius = 1.0830078
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3tfy"]
+size = Vector3(17.004456, 0.7795105, 3.277832)
+
 [node name="area_5" type="Node3D"]
 script = ExtResource("1_436o1")
 
@@ -755,6 +759,7 @@ material = ExtResource("3_tssge")
 libraries = {
 &"": SubResource("AnimationLibrary_6sm8s")
 }
+autoplay = "RESET"
 
 [node name="buton_blue" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 25.660828, 0.41767824, 26.283777)
@@ -912,6 +917,12 @@ shape = SubResource("CylinderShape3D_1nqd1")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.981823, -0.77709293, 27.712772)
 shape = SubResource("CylinderShape3D_vqc00")
+
+[node name="kill_zone" parent="." instance=ExtResource("21_126bu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="kill_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.880981, -1.2749987, 24.4857)
+shape = SubResource("BoxShape3D_y3tfy")
 
 [connection signal="input_event" from="area_blue" to="." method="_on_area_blue_input_event"]
 [connection signal="input_event" from="area_yellow" to="." method="_on_area_yellow_input_event"]

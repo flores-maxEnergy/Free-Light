@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://hbsmy5au8vt1"]
+[gd_scene load_steps=27 format=4 uid="uid://hbsmy5au8vt1"]
 
 [ext_resource type="Script" uid="uid://qm848wcdvtdu" path="res://scripts/personagem.gd" id="1_wtnic"]
 [ext_resource type="Texture2D" uid="uid://p862d6v7lb4a" path="res://assets/modelagens/F-7E3_roboF.png" id="2_bss74"]
@@ -280,7 +280,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.6911999, 1.3793948, 0)]
+"values": [Vector3(-1.902, 1.529, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -292,7 +292,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0039259195, 0.0025384426, 0)]
+"values": [Vector3(-0.035, 0.019, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -424,10 +424,10 @@ script = ExtResource("1_wtnic")
 velocidade = 6.0
 
 [node name="cabeca" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6911999, 1.3793948, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.902, 1.529, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cabeca"]
-transform = Transform3D(-3.4213997e-08, 0.44329014, -0.896378, 1.9204695e-08, 0.896378, 0.44329014, 1, -2.0479383e-09, -3.9181927e-08, -0.0039259195, 0.0025384426, 0)
+transform = Transform3D(-3.4213997e-08, 0.44329014, -0.896378, 1.9204695e-08, 0.896378, 0.44329014, 1, -2.0479383e-09, -3.9181927e-08, -0.035, 0.019, 0)
 
 [node name="cabecaCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.31586483, 0, 0, 0, 0.31586483, 0, 0, 0, 0.31586483, 0, 0.82750684, 0)
@@ -487,14 +487,14 @@ bones/2/name = "dir"
 bones/2/parent = -1
 bones/2/rest = Transform3D(1.0000001, 0, -1.5815075e-06, -1.5815075e-06, 0, -1.0000001, 0, 1.0000001, 0, 7.8079186e-17, 0.92805946, -0.22104608)
 bones/2/enabled = true
-bones/2/position = Vector3(-3.0769893e-08, 0.9086033, -0.54866016)
+bones/2/position = Vector3(2.543226e-16, 0.9280594, -0.22104606)
 bones/2/rotation = Quaternion(0.70710677, -5.591472e-07, -5.591472e-07, 0.70710677)
 bones/2/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/3/name = "esq"
 bones/3/parent = -1
 bones/3/rest = Transform3D(1.0000001, 0, -1.6053574e-06, 1.6053574e-06, 0, 1.0000001, 0, -1.0000001, 0, 1.1378003e-16, 0.92805946, 0.37035945)
 bones/3/enabled = true
-bones/3/position = Vector3(2.1927772e-08, 0.91440034, 0.67837065)
+bones/3/position = Vector3(1.4532375e-16, 0.92805946, 0.37035942)
 bones/3/rotation = Quaternion(-0.70710677, -5.6757943e-07, 5.6757943e-07, 0.70710677)
 bones/3/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/4/name = "neutral_bone"
@@ -523,8 +523,9 @@ skin = SubResource("Skin_jc3tx")
 
 [node name="luz_cabeca" type="OmniLight3D" parent="Armature/Skeleton3D/cabeca"]
 transform = Transform3D(3.1659112, 0, 0, 0, 3.1659112, 0, 0, 0, 3.1659112, -0.12142709, 3.9178488, 0)
-light_color = Color(0.9392892, 0, 0.23148578, 1)
-omni_range = 3.5
+light_color = Color(0.9954687, 0, 0.24778077, 1)
+omni_range = 6.0
+omni_attenuation = 0.5
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Armature/Skeleton3D/cabeca"]
 transform = Transform3D(3.1659124, 0, 0, 0, 3.1659124, 0, 0, 0, 3.1659124, -0.15069558, 3.4742274, 0.055716656)

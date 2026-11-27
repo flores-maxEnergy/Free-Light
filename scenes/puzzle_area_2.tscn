@@ -323,3 +323,11 @@ material = SubResource("StandardMaterial3D_tx1r8")
 
 [node name="plataforma_move" parent="suporte" instance=ExtResource("4_g8f1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.876865, 1.5856614, -26.448713)
+
+[node name="luz3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.437765, 3.176896, -30.590916)
+light_color = Color(0.87793857, 0.7988405, 0.5314986, 1)
+light_energy = 4.636
+light_indirect_energy = 2.498
+omni_range = 14.528
+omni_attenuation = 1.011
