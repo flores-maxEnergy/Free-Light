@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmkso4hket0rh"]
+[gd_scene load_steps=10 format=3 uid="uid://bmkso4hket0rh"]
 
 [ext_resource type="Texture2D" uid="uid://bvu2bdh8hrc5c" path="res://scenes/liberdade 1.png" id="1_3redg"]
+[ext_resource type="Script" uid="uid://b5lw241r65wd1" path="res://scripts/tela_win.gd" id="1_4f17r"]
 [ext_resource type="Texture2D" uid="uid://dwnoq0oldtf63" path="res://scenes/liberdade 20p.png" id="2_4wkkb"]
 [ext_resource type="Texture2D" uid="uid://fpry4p2ud4m1" path="res://scenes/liberdade 40 p.png" id="3_820o3"]
 [ext_resource type="AudioStream" uid="uid://cb2wg50gd6rw5" path="res://sons/lili cantou.mp3" id="4_4wkkb"]
+[ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="4_d75bo"]
+[ext_resource type="StyleBox" uid="uid://xthh47mnefsk" path="res://assets/texturas/button_texture.tres" id="5_4f17r"]
+[ext_resource type="StyleBox" uid="uid://dxqkq4bvvghje" path="res://assets/texturas/button_texture_hover.tres" id="6_b8i0u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_80vbu"]
 animations = [{
@@ -36,44 +40,72 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -226.92297
+offset_bottom = -158.46149
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_4f17r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 804.0
-offset_bottom = 502.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27039155, 0.49537075, 0.56402963, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(411, 145)
+position = Vector2(394.6154, 164.61539)
 scale = Vector2(1.7209595, 1.3784722)
 sprite_frames = SubResource("SpriteFrames_80vbu")
 autoplay = "default"
 frame_progress = 0.52752167
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 330.0
-offset_right = 514.0
-offset_bottom = 374.0
-theme_override_font_sizes/font_size = 26
-text = "Jogar Novamente"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.92313
+offset_top = 21.538452
+offset_right = 121.923065
+offset_bottom = 65.53845
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d75bo")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_4f17r")
+theme_override_styles/hover = ExtResource("6_b8i0u")
+text = "Voltar ao menu"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 279.0
-offset_right = 533.0
-offset_bottom = 311.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.69235
+offset_top = -12.307709
+offset_right = 236.30768
+offset_bottom = 19.692291
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 3
 theme_override_constants/paragraph_spacing = 0
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_d75bo")
 theme_override_font_sizes/font_size = 23
 text = "Você está livre para viver"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4wkkb")
 autoplay = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

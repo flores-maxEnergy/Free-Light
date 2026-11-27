@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpmd5vreoey25"]
+[gd_scene load_steps=9 format=3 uid="uid://dpmd5vreoey25"]
 
 [ext_resource type="Script" uid="uid://v275dhwg52wm" path="res://scripts/tela_derrota.gd" id="1_5bnta"]
 [ext_resource type="Texture2D" uid="uid://codaxr2ybexn0" path="res://scenes/game over.png" id="2_ub6w7"]
 [ext_resource type="Texture2D" uid="uid://bfit3pmlihw0w" path="res://scenes/game over2.png" id="3_25y64"]
 [ext_resource type="AudioStream" uid="uid://0pj7iaq3h7m1" path="res://sons/som de derrota.mp3" id="4_25y64"]
+[ext_resource type="FontFile" uid="uid://470ls52mvfbc" path="res://assets/font/PixelOperator8.ttf" id="4_lxhuu"]
+[ext_resource type="StyleBox" uid="uid://xthh47mnefsk" path="res://assets/texturas/button_texture.tres" id="5_asjol"]
+[ext_resource type="StyleBox" uid="uid://dxqkq4bvvghje" path="res://assets/texturas/button_texture_hover.tres" id="6_anh65"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_psr50"]
 animations = [{
@@ -21,33 +24,56 @@ animations = [{
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_5bnta")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 802.0
-offset_bottom = 504.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -360.0
+offset_right = 521.0
+offset_bottom = 337.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(395, 195)
+position = Vector2(3, -91)
 sprite_frames = SubResource("SpriteFrames_psr50")
 autoplay = "default"
 frame_progress = 0.9288656
 
 [node name="jogar_btn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 287.0
-offset_top = 346.0
-offset_right = 501.0
-offset_bottom = 389.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -21.5
+offset_right = 107.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_lxhuu")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("5_asjol")
+theme_override_styles/hover = ExtResource("6_anh65")
 text = "Jogar novamente"
 
 [node name="somderrota" type="AudioStreamPlayer" parent="."]

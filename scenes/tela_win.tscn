@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdcnrwh3k7ggp"]
 
-[ext_resource type="Script" uid="uid://b5lw241r65wd1" path="res://tela_win.gd" id="1_yfwh6"]
+[ext_resource type="Script" uid="uid://b5lw241r65wd1" path="res://scripts/tela_win.gd" id="1_yfwh6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

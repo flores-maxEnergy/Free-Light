@@ -11,7 +11,6 @@ extends Node3D
 @onready var som_ambiente: AudioStreamPlayer = $Sons/SomAmbiente
 
 func _ready() -> void:
-	liberar_saida()
 	personagem.saida_liberada.connect(liberar_saida)
 
 func liberar_saida():
@@ -21,6 +20,7 @@ func liberar_saida():
 
 func _on_area_win_body_entered(body: Node3D) -> void:
 	if body.is_in_group("jogador"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://scenes/tela_vitoria.tscn")
 
 func _on_acender_lanterna_body_entered(body: Node3D) -> void:
@@ -29,7 +29,6 @@ func _on_acender_lanterna_body_entered(body: Node3D) -> void:
 		dialogo.visible = true
 		sprite_dialogo.play("dialogo_intro")
 		text_animation.play("intro")
-
 
 func _on_aprender_agachar_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):
@@ -71,4 +70,14 @@ func _on_area_sistema_body_entered(body: Node3D) -> void:
 func _on_area_sistema_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("jogador")):
 		body.dentro_da_area_do_sistema = false
+		body.interagir_txt(false)
+
+func _on_area_quadro_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("jogador")):
+		body.dentro_da_area_do_quadro = true
+		body.interagir_txt(true)
+
+func _on_area_quadro_body_exited(body: Node3D) -> void:
+	if(body.is_in_group("jogador")):
+		body.dentro_da_area_do_quadro = false
 		body.interagir_txt(false)

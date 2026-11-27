@@ -7,9 +7,11 @@ signal pegou_bateria
 @export var sensibilidade := 0.001
 @export var cofre_mod : Node3D
 @export var sistema : Node3D
+@export var quadro : Node3D
 var dentro_da_area_do_cofre := false
 var dentro_da_area_da_bateria := false
 var dentro_da_area_do_sistema := false
+var dentro_da_area_do_quadro := false
 
 # Energia da lanterna
 @export var energia_maxima := 100.0
@@ -119,6 +121,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interagir") and dentro_da_area_do_sistema:
 		sistema.posicionar(self)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		tocar_na_mesh(true)
+		return
+	
+	if event.is_action_pressed("interagir") and dentro_da_area_do_quadro:
+		quadro.posicionar(self)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		tocar_na_mesh(true)
 		return
